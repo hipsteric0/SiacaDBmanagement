@@ -1,0 +1,10 @@
+C:\Users\jose romero\source\repos\SiacaCSAccessDatabase\SiacaCSAccessDatabase\bin\Debug\SiacaCSAccessDatabase.exe.config
+C:\Users\jose romero\source\repos\SiacaCSAccessDatabase\SiacaCSAccessDatabase\bin\Debug\SiacaCSAccessDatabase.exe
+C:\Users\jose romero\source\repos\SiacaCSAccessDatabase\SiacaCSAccessDatabase\bin\Debug\SiacaCSAccessDatabase.pdb
+C:\Users\jose romero\source\repos\SiacaCSAccessDatabase\SiacaCSAccessDatabase\obj\Debug\SiacaCSAccessDatabase.csprojAssemblyReference.cache
+C:\Users\jose romero\source\repos\SiacaCSAccessDatabase\SiacaCSAccessDatabase\obj\Debug\SiacaCSAccessDatabase.Form1.resources
+C:\Users\jose romero\source\repos\SiacaCSAccessDatabase\SiacaCSAccessDatabase\obj\Debug\SiacaCSAccessDatabase.Properties.Resources.resources
+C:\Users\jose romero\source\repos\SiacaCSAccessDatabase\SiacaCSAccessDatabase\obj\Debug\SiacaCSAccessDatabase.csproj.GenerateResource.cache
+C:\Users\jose romero\source\repos\SiacaCSAccessDatabase\SiacaCSAccessDatabase\obj\Debug\SiacaCSAccessDatabase.csproj.CoreCompileInputs.cache
+C:\Users\jose romero\source\repos\SiacaCSAccessDatabase\SiacaCSAccessDatabase\obj\Debug\SiacaCSAccessDatabase.exe
+C:\Users\jose romero\source\repos\SiacaCSAccessDatabase\SiacaCSAccessDatabase\obj\Debug\SiacaCSAccessDatabase.pdb
