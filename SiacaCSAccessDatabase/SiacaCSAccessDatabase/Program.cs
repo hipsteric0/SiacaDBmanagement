@@ -8,6 +8,8 @@ namespace SiacaCSAccessDatabase
 {
 	static class Program
 	{
+		//C:\Users\alero\OneDrive\Escritorio\MP
+		//C:\Users\jose romero\Desktop\MP
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
