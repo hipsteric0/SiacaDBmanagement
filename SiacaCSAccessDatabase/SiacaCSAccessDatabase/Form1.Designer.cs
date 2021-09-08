@@ -31,10 +31,6 @@ namespace SiacaCSAccessDatabase
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-			this._MP_13_11_19DataSet = new SiacaCSAccessDatabase._MP_13_11_19DataSet();
-			this.consumoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.consumoTableAdapter = new SiacaCSAccessDatabase._MP_13_11_19DataSetTableAdapters.ConsumoTableAdapter();
-			this.tableAdapterManager = new SiacaCSAccessDatabase._MP_13_11_19DataSetTableAdapters.TableAdapterManager();
 			this.consumoBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
 			this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
 			this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -49,6 +45,7 @@ namespace SiacaCSAccessDatabase
 			this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.consumoBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
 			this.consumoDataGridView = new System.Windows.Forms.DataGridView();
+			this.button1 = new System.Windows.Forms.Button();
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,23 +67,365 @@ namespace SiacaCSAccessDatabase
 			this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.dataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.button1 = new System.Windows.Forms.Button();
-			((System.ComponentModel.ISupportInitialize)(this._MP_13_11_19DataSet)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.consumoBindingSource)).BeginInit();
+			this.consumoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this._MP_13_11_19DataSet = new SiacaCSAccessDatabase._MP_13_11_19DataSet();
+			this.consumoTableAdapter = new SiacaCSAccessDatabase._MP_13_11_19DataSetTableAdapters.ConsumoTableAdapter();
+			this.tableAdapterManager = new SiacaCSAccessDatabase._MP_13_11_19DataSetTableAdapters.TableAdapterManager();
 			((System.ComponentModel.ISupportInitialize)(this.consumoBindingNavigator)).BeginInit();
 			this.consumoBindingNavigator.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.consumoDataGridView)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.consumoBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this._MP_13_11_19DataSet)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// _MP_13_11_19DataSet
+			// consumoBindingNavigator
 			// 
-			this._MP_13_11_19DataSet.DataSetName = "_MP_13_11_19DataSet";
-			this._MP_13_11_19DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			this.consumoBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+			this.consumoBindingNavigator.BindingSource = this.consumoBindingSource;
+			this.consumoBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+			this.consumoBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+			this.consumoBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
+			this.consumoBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2,
+            this.bindingNavigatorAddNewItem,
+            this.bindingNavigatorDeleteItem,
+            this.consumoBindingNavigatorSaveItem});
+			this.consumoBindingNavigator.Location = new System.Drawing.Point(0, 0);
+			this.consumoBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+			this.consumoBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+			this.consumoBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+			this.consumoBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+			this.consumoBindingNavigator.Name = "consumoBindingNavigator";
+			this.consumoBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+			this.consumoBindingNavigator.Size = new System.Drawing.Size(1067, 27);
+			this.consumoBindingNavigator.TabIndex = 0;
+			this.consumoBindingNavigator.Text = "bindingNavigator1";
+			// 
+			// bindingNavigatorAddNewItem
+			// 
+			this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+			this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+			this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+			this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+			this.bindingNavigatorAddNewItem.Text = "Add new";
+			// 
+			// bindingNavigatorCountItem
+			// 
+			this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+			this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
+			this.bindingNavigatorCountItem.Text = "of {0}";
+			this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+			// 
+			// bindingNavigatorDeleteItem
+			// 
+			this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+			this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+			this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+			this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
+			this.bindingNavigatorDeleteItem.Text = "Delete";
+			// 
+			// bindingNavigatorMoveFirstItem
+			// 
+			this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+			this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+			this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+			this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+			this.bindingNavigatorMoveFirstItem.Text = "Move first";
+			// 
+			// bindingNavigatorMovePreviousItem
+			// 
+			this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+			this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+			this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+			this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+			this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+			// 
+			// bindingNavigatorSeparator
+			// 
+			this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+			this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+			// 
+			// bindingNavigatorPositionItem
+			// 
+			this.bindingNavigatorPositionItem.AccessibleName = "Position";
+			this.bindingNavigatorPositionItem.AutoSize = false;
+			this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+			this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(65, 27);
+			this.bindingNavigatorPositionItem.Text = "0";
+			this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+			// 
+			// bindingNavigatorSeparator1
+			// 
+			this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+			this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+			// 
+			// bindingNavigatorMoveNextItem
+			// 
+			this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+			this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+			this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+			this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
+			this.bindingNavigatorMoveNextItem.Text = "Move next";
+			// 
+			// bindingNavigatorMoveLastItem
+			// 
+			this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+			this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+			this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+			this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
+			this.bindingNavigatorMoveLastItem.Text = "Move last";
+			// 
+			// bindingNavigatorSeparator2
+			// 
+			this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+			this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+			// 
+			// consumoBindingNavigatorSaveItem
+			// 
+			this.consumoBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.consumoBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("consumoBindingNavigatorSaveItem.Image")));
+			this.consumoBindingNavigatorSaveItem.Name = "consumoBindingNavigatorSaveItem";
+			this.consumoBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
+			this.consumoBindingNavigatorSaveItem.Text = "Save Data";
+			this.consumoBindingNavigatorSaveItem.Click += new System.EventHandler(this.consumoBindingNavigatorSaveItem_Click);
+			// 
+			// consumoDataGridView
+			// 
+			this.consumoDataGridView.AutoGenerateColumns = false;
+			this.consumoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.consumoDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewCheckBoxColumn1,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewCheckBoxColumn2,
+            this.dataGridViewCheckBoxColumn3,
+            this.dataGridViewTextBoxColumn18});
+			this.consumoDataGridView.DataSource = this.consumoBindingSource;
+			this.consumoDataGridView.Location = new System.Drawing.Point(0, 76);
+			this.consumoDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.consumoDataGridView.Name = "consumoDataGridView";
+			this.consumoDataGridView.RowHeadersWidth = 51;
+			this.consumoDataGridView.Size = new System.Drawing.Size(1067, 506);
+			this.consumoDataGridView.TabIndex = 1;
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(16, 41);
+			this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(100, 28);
+			this.button1.TabIndex = 2;
+			this.button1.Text = "button1";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// dataGridViewTextBoxColumn1
+			// 
+			this.dataGridViewTextBoxColumn1.DataPropertyName = "Id_Consumo";
+			this.dataGridViewTextBoxColumn1.HeaderText = "Id_Consumo";
+			this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+			this.dataGridViewTextBoxColumn1.Width = 125;
+			// 
+			// dataGridViewTextBoxColumn2
+			// 
+			this.dataGridViewTextBoxColumn2.DataPropertyName = "Id_OTMaster";
+			this.dataGridViewTextBoxColumn2.HeaderText = "Id_OTMaster";
+			this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+			this.dataGridViewTextBoxColumn2.Width = 125;
+			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this.dataGridViewTextBoxColumn3.DataPropertyName = "Id_History_EquipBuilding";
+			this.dataGridViewTextBoxColumn3.HeaderText = "Id_History_EquipBuilding";
+			this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+			this.dataGridViewTextBoxColumn3.Width = 125;
+			// 
+			// dataGridViewTextBoxColumn4
+			// 
+			this.dataGridViewTextBoxColumn4.DataPropertyName = "Id_TypeResource";
+			this.dataGridViewTextBoxColumn4.HeaderText = "Id_TypeResource";
+			this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+			this.dataGridViewTextBoxColumn4.Width = 125;
+			// 
+			// dataGridViewTextBoxColumn5
+			// 
+			this.dataGridViewTextBoxColumn5.DataPropertyName = "Desc_TypeResource";
+			this.dataGridViewTextBoxColumn5.HeaderText = "Desc_TypeResource";
+			this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+			this.dataGridViewTextBoxColumn5.Width = 125;
+			// 
+			// dataGridViewTextBoxColumn6
+			// 
+			this.dataGridViewTextBoxColumn6.DataPropertyName = "Id_ResourceKey";
+			this.dataGridViewTextBoxColumn6.HeaderText = "Id_ResourceKey";
+			this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+			this.dataGridViewTextBoxColumn6.Width = 125;
+			// 
+			// dataGridViewTextBoxColumn7
+			// 
+			this.dataGridViewTextBoxColumn7.DataPropertyName = "Desc_Resource";
+			this.dataGridViewTextBoxColumn7.HeaderText = "Desc_Resource";
+			this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+			this.dataGridViewTextBoxColumn7.Width = 125;
+			// 
+			// dataGridViewTextBoxColumn8
+			// 
+			this.dataGridViewTextBoxColumn8.DataPropertyName = "PartNo";
+			this.dataGridViewTextBoxColumn8.HeaderText = "PartNo";
+			this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+			this.dataGridViewTextBoxColumn8.Width = 125;
+			// 
+			// dataGridViewTextBoxColumn9
+			// 
+			this.dataGridViewTextBoxColumn9.DataPropertyName = "Quantity";
+			this.dataGridViewTextBoxColumn9.HeaderText = "Quantity";
+			this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+			this.dataGridViewTextBoxColumn9.Width = 125;
+			// 
+			// dataGridViewTextBoxColumn10
+			// 
+			this.dataGridViewTextBoxColumn10.DataPropertyName = "Duration";
+			this.dataGridViewTextBoxColumn10.HeaderText = "Duration";
+			this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+			this.dataGridViewTextBoxColumn10.Width = 125;
+			// 
+			// dataGridViewTextBoxColumn11
+			// 
+			this.dataGridViewTextBoxColumn11.DataPropertyName = "Unit_Resource";
+			this.dataGridViewTextBoxColumn11.HeaderText = "Unit_Resource";
+			this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+			this.dataGridViewTextBoxColumn11.Width = 125;
+			// 
+			// dataGridViewTextBoxColumn12
+			// 
+			this.dataGridViewTextBoxColumn12.DataPropertyName = "CreatedDate";
+			this.dataGridViewTextBoxColumn12.HeaderText = "CreatedDate";
+			this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+			this.dataGridViewTextBoxColumn12.Width = 125;
+			// 
+			// dataGridViewTextBoxColumn13
+			// 
+			this.dataGridViewTextBoxColumn13.DataPropertyName = "Cost";
+			this.dataGridViewTextBoxColumn13.HeaderText = "Cost";
+			this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+			this.dataGridViewTextBoxColumn13.Width = 125;
+			// 
+			// dataGridViewTextBoxColumn14
+			// 
+			this.dataGridViewTextBoxColumn14.DataPropertyName = "Total";
+			this.dataGridViewTextBoxColumn14.HeaderText = "Total";
+			this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+			this.dataGridViewTextBoxColumn14.Width = 125;
+			// 
+			// dataGridViewTextBoxColumn15
+			// 
+			this.dataGridViewTextBoxColumn15.DataPropertyName = "Id_OTType";
+			this.dataGridViewTextBoxColumn15.HeaderText = "Id_OTType";
+			this.dataGridViewTextBoxColumn15.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+			this.dataGridViewTextBoxColumn15.Width = 125;
+			// 
+			// dataGridViewCheckBoxColumn1
+			// 
+			this.dataGridViewCheckBoxColumn1.DataPropertyName = "Catalogado";
+			this.dataGridViewCheckBoxColumn1.HeaderText = "Catalogado";
+			this.dataGridViewCheckBoxColumn1.MinimumWidth = 6;
+			this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+			this.dataGridViewCheckBoxColumn1.Width = 125;
+			// 
+			// dataGridViewTextBoxColumn16
+			// 
+			this.dataGridViewTextBoxColumn16.DataPropertyName = "CostCenter";
+			this.dataGridViewTextBoxColumn16.HeaderText = "CostCenter";
+			this.dataGridViewTextBoxColumn16.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+			this.dataGridViewTextBoxColumn16.Width = 125;
+			// 
+			// dataGridViewTextBoxColumn17
+			// 
+			this.dataGridViewTextBoxColumn17.DataPropertyName = "Id_Vale_Detail";
+			this.dataGridViewTextBoxColumn17.HeaderText = "Id_Vale_Detail";
+			this.dataGridViewTextBoxColumn17.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+			this.dataGridViewTextBoxColumn17.Width = 125;
+			// 
+			// dataGridViewCheckBoxColumn2
+			// 
+			this.dataGridViewCheckBoxColumn2.DataPropertyName = "Automatico";
+			this.dataGridViewCheckBoxColumn2.HeaderText = "Automatico";
+			this.dataGridViewCheckBoxColumn2.MinimumWidth = 6;
+			this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
+			this.dataGridViewCheckBoxColumn2.Width = 125;
+			// 
+			// dataGridViewCheckBoxColumn3
+			// 
+			this.dataGridViewCheckBoxColumn3.DataPropertyName = "IsOverTime";
+			this.dataGridViewCheckBoxColumn3.HeaderText = "IsOverTime";
+			this.dataGridViewCheckBoxColumn3.MinimumWidth = 6;
+			this.dataGridViewCheckBoxColumn3.Name = "dataGridViewCheckBoxColumn3";
+			this.dataGridViewCheckBoxColumn3.Width = 125;
+			// 
+			// dataGridViewTextBoxColumn18
+			// 
+			this.dataGridViewTextBoxColumn18.DataPropertyName = "MD";
+			this.dataGridViewTextBoxColumn18.HeaderText = "MD";
+			this.dataGridViewTextBoxColumn18.MinimumWidth = 6;
+			this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+			this.dataGridViewTextBoxColumn18.Width = 125;
 			// 
 			// consumoBindingSource
 			// 
 			this.consumoBindingSource.DataMember = "Consumo";
 			this.consumoBindingSource.DataSource = this._MP_13_11_19DataSet;
+			// 
+			// _MP_13_11_19DataSet
+			// 
+			this._MP_13_11_19DataSet.DataSetName = "_MP_13_11_19DataSet";
+			this._MP_13_11_19DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
 			// 
 			// consumoTableAdapter
 			// 
@@ -204,316 +543,24 @@ namespace SiacaCSAccessDatabase
 			this.tableAdapterManager.UsersTableAdapter = null;
 			this.tableAdapterManager.WarrantyTableAdapter = null;
 			// 
-			// consumoBindingNavigator
-			// 
-			this.consumoBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-			this.consumoBindingNavigator.BindingSource = this.consumoBindingSource;
-			this.consumoBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-			this.consumoBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-			this.consumoBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.consumoBindingNavigatorSaveItem});
-			this.consumoBindingNavigator.Location = new System.Drawing.Point(0, 0);
-			this.consumoBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-			this.consumoBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-			this.consumoBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-			this.consumoBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-			this.consumoBindingNavigator.Name = "consumoBindingNavigator";
-			this.consumoBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-			this.consumoBindingNavigator.Size = new System.Drawing.Size(800, 25);
-			this.consumoBindingNavigator.TabIndex = 0;
-			this.consumoBindingNavigator.Text = "bindingNavigator1";
-			// 
-			// bindingNavigatorAddNewItem
-			// 
-			this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-			this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-			this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorAddNewItem.Text = "Add new";
-			// 
-			// bindingNavigatorCountItem
-			// 
-			this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-			this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-			this.bindingNavigatorCountItem.Text = "of {0}";
-			this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-			// 
-			// bindingNavigatorDeleteItem
-			// 
-			this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-			this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-			this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorDeleteItem.Text = "Delete";
-			// 
-			// bindingNavigatorMoveFirstItem
-			// 
-			this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-			this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-			this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorMoveFirstItem.Text = "Move first";
-			// 
-			// bindingNavigatorMovePreviousItem
-			// 
-			this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-			this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-			this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-			// 
-			// bindingNavigatorSeparator
-			// 
-			this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-			this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-			// 
-			// bindingNavigatorPositionItem
-			// 
-			this.bindingNavigatorPositionItem.AccessibleName = "Position";
-			this.bindingNavigatorPositionItem.AutoSize = false;
-			this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-			this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-			this.bindingNavigatorPositionItem.Text = "0";
-			this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-			// 
-			// bindingNavigatorSeparator1
-			// 
-			this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-			this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-			// 
-			// bindingNavigatorMoveNextItem
-			// 
-			this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-			this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-			this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorMoveNextItem.Text = "Move next";
-			// 
-			// bindingNavigatorMoveLastItem
-			// 
-			this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-			this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-			this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorMoveLastItem.Text = "Move last";
-			// 
-			// bindingNavigatorSeparator2
-			// 
-			this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-			this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-			// 
-			// consumoBindingNavigatorSaveItem
-			// 
-			this.consumoBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.consumoBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("consumoBindingNavigatorSaveItem.Image")));
-			this.consumoBindingNavigatorSaveItem.Name = "consumoBindingNavigatorSaveItem";
-			this.consumoBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-			this.consumoBindingNavigatorSaveItem.Text = "Save Data";
-			this.consumoBindingNavigatorSaveItem.Click += new System.EventHandler(this.consumoBindingNavigatorSaveItem_Click);
-			// 
-			// consumoDataGridView
-			// 
-			this.consumoDataGridView.AutoGenerateColumns = false;
-			this.consumoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.consumoDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewCheckBoxColumn1,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewCheckBoxColumn2,
-            this.dataGridViewCheckBoxColumn3,
-            this.dataGridViewTextBoxColumn18});
-			this.consumoDataGridView.DataSource = this.consumoBindingSource;
-			this.consumoDataGridView.Location = new System.Drawing.Point(0, 62);
-			this.consumoDataGridView.Name = "consumoDataGridView";
-			this.consumoDataGridView.Size = new System.Drawing.Size(800, 411);
-			this.consumoDataGridView.TabIndex = 1;
-			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			this.dataGridViewTextBoxColumn1.DataPropertyName = "Id_Consumo";
-			this.dataGridViewTextBoxColumn1.HeaderText = "Id_Consumo";
-			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-			// 
-			// dataGridViewTextBoxColumn2
-			// 
-			this.dataGridViewTextBoxColumn2.DataPropertyName = "Id_OTMaster";
-			this.dataGridViewTextBoxColumn2.HeaderText = "Id_OTMaster";
-			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this.dataGridViewTextBoxColumn3.DataPropertyName = "Id_History_EquipBuilding";
-			this.dataGridViewTextBoxColumn3.HeaderText = "Id_History_EquipBuilding";
-			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-			// 
-			// dataGridViewTextBoxColumn4
-			// 
-			this.dataGridViewTextBoxColumn4.DataPropertyName = "Id_TypeResource";
-			this.dataGridViewTextBoxColumn4.HeaderText = "Id_TypeResource";
-			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-			// 
-			// dataGridViewTextBoxColumn5
-			// 
-			this.dataGridViewTextBoxColumn5.DataPropertyName = "Desc_TypeResource";
-			this.dataGridViewTextBoxColumn5.HeaderText = "Desc_TypeResource";
-			this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-			// 
-			// dataGridViewTextBoxColumn6
-			// 
-			this.dataGridViewTextBoxColumn6.DataPropertyName = "Id_ResourceKey";
-			this.dataGridViewTextBoxColumn6.HeaderText = "Id_ResourceKey";
-			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-			// 
-			// dataGridViewTextBoxColumn7
-			// 
-			this.dataGridViewTextBoxColumn7.DataPropertyName = "Desc_Resource";
-			this.dataGridViewTextBoxColumn7.HeaderText = "Desc_Resource";
-			this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-			// 
-			// dataGridViewTextBoxColumn8
-			// 
-			this.dataGridViewTextBoxColumn8.DataPropertyName = "PartNo";
-			this.dataGridViewTextBoxColumn8.HeaderText = "PartNo";
-			this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-			// 
-			// dataGridViewTextBoxColumn9
-			// 
-			this.dataGridViewTextBoxColumn9.DataPropertyName = "Quantity";
-			this.dataGridViewTextBoxColumn9.HeaderText = "Quantity";
-			this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-			// 
-			// dataGridViewTextBoxColumn10
-			// 
-			this.dataGridViewTextBoxColumn10.DataPropertyName = "Duration";
-			this.dataGridViewTextBoxColumn10.HeaderText = "Duration";
-			this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-			// 
-			// dataGridViewTextBoxColumn11
-			// 
-			this.dataGridViewTextBoxColumn11.DataPropertyName = "Unit_Resource";
-			this.dataGridViewTextBoxColumn11.HeaderText = "Unit_Resource";
-			this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-			// 
-			// dataGridViewTextBoxColumn12
-			// 
-			this.dataGridViewTextBoxColumn12.DataPropertyName = "CreatedDate";
-			this.dataGridViewTextBoxColumn12.HeaderText = "CreatedDate";
-			this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-			// 
-			// dataGridViewTextBoxColumn13
-			// 
-			this.dataGridViewTextBoxColumn13.DataPropertyName = "Cost";
-			this.dataGridViewTextBoxColumn13.HeaderText = "Cost";
-			this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-			// 
-			// dataGridViewTextBoxColumn14
-			// 
-			this.dataGridViewTextBoxColumn14.DataPropertyName = "Total";
-			this.dataGridViewTextBoxColumn14.HeaderText = "Total";
-			this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-			// 
-			// dataGridViewTextBoxColumn15
-			// 
-			this.dataGridViewTextBoxColumn15.DataPropertyName = "Id_OTType";
-			this.dataGridViewTextBoxColumn15.HeaderText = "Id_OTType";
-			this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-			// 
-			// dataGridViewCheckBoxColumn1
-			// 
-			this.dataGridViewCheckBoxColumn1.DataPropertyName = "Catalogado";
-			this.dataGridViewCheckBoxColumn1.HeaderText = "Catalogado";
-			this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-			// 
-			// dataGridViewTextBoxColumn16
-			// 
-			this.dataGridViewTextBoxColumn16.DataPropertyName = "CostCenter";
-			this.dataGridViewTextBoxColumn16.HeaderText = "CostCenter";
-			this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-			// 
-			// dataGridViewTextBoxColumn17
-			// 
-			this.dataGridViewTextBoxColumn17.DataPropertyName = "Id_Vale_Detail";
-			this.dataGridViewTextBoxColumn17.HeaderText = "Id_Vale_Detail";
-			this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-			// 
-			// dataGridViewCheckBoxColumn2
-			// 
-			this.dataGridViewCheckBoxColumn2.DataPropertyName = "Automatico";
-			this.dataGridViewCheckBoxColumn2.HeaderText = "Automatico";
-			this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
-			// 
-			// dataGridViewCheckBoxColumn3
-			// 
-			this.dataGridViewCheckBoxColumn3.DataPropertyName = "IsOverTime";
-			this.dataGridViewCheckBoxColumn3.HeaderText = "IsOverTime";
-			this.dataGridViewCheckBoxColumn3.Name = "dataGridViewCheckBoxColumn3";
-			// 
-			// dataGridViewTextBoxColumn18
-			// 
-			this.dataGridViewTextBoxColumn18.DataPropertyName = "MD";
-			this.dataGridViewTextBoxColumn18.HeaderText = "MD";
-			this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(12, 33);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 2;
-			this.button1.Text = "button1";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
-			// 
 			// Form1
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(1067, 554);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.consumoDataGridView);
 			this.Controls.Add(this.consumoBindingNavigator);
+			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.Name = "Form1";
 			this.Text = "Form1";
 			this.Load += new System.EventHandler(this.Form1_Load);
-			((System.ComponentModel.ISupportInitialize)(this._MP_13_11_19DataSet)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.consumoBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.consumoBindingNavigator)).EndInit();
 			this.consumoBindingNavigator.ResumeLayout(false);
 			this.consumoBindingNavigator.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.consumoDataGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.consumoBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this._MP_13_11_19DataSet)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

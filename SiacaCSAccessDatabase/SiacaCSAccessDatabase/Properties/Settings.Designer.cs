@@ -12,7 +12,7 @@ namespace SiacaCSAccessDatabase.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,11 +26,22 @@ namespace SiacaCSAccessDatabase.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\"C:\\Users\\jose romero\\Desktop\\MP\\MP_" +
-            "13-11-19.M91\";Persist Security Info=True;Jet OLEDB:Database Password=*")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\"C:\\Users\\alero\\OneDrive\\Escritorio\\" +
+            "MP\\MP_13-11-19.M91\";Persist Security Info=True;Jet OLEDB:Database Password=*")]
         public string MP_13_11_19ConnectionString {
             get {
                 return ((string)(this["MP_13_11_19ConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\alero\\OneDrive\\Escritorio\\M" +
+            "P\\INV_13-11-19.i01;Persist Security Info=True;Jet OLEDB:Database Password=*")]
+        public string INV_13_11_19ConnectionString {
+            get {
+                return ((string)(this["INV_13_11_19ConnectionString"]));
             }
         }
     }
