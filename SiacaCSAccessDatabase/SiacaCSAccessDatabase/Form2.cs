@@ -9,6 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//POR HACER:
+//editar tabla inventarioFisico
+//Insertar en tabla CatProductos
+//editar tabla catProductos
+//consultar en sql server
+//enviar desde sql server a access los datos a insertar/editar
+//los vales (PREGUNTAR EN SIACA)
+//obtener la BD de siaca de PROFIT (sqlserver)
+
 namespace SiacaCSAccessDatabase
 {
 	public partial class Form2 : Form
@@ -67,7 +76,9 @@ namespace SiacaCSAccessDatabase
 					conn.Open();
 
 					OleDbCommand cmd =
-						new OleDbCommand("INSERT INTO InventarioFisico (TIPOINVENTARIO,ID_ALMACEN,ID_PRODUCTOS,ID_PROVEEDOR,CANTIDAD,COSTO_UNITARIO,ULTIMO_COSTO,SUB_TOTAL,DIFERENCIA,EXISTENCIAS) VALUES (1,1,1,1,1,1,1,1,1,1)", conn);
+						//new OleDbCommand("INSERT INTO InventarioFisico (TIPOINVENTARIO,ID_ALMACEN,ID_PRODUCTOS,ID_PROVEEDOR,CANTIDAD,COSTO_UNITARIO,ULTIMO_COSTO,SUB_TOTAL,DIFERENCIA,EXISTENCIAS) VALUES (1,1,1,1,1,1,1,1,1,1)", conn);   ///insert un nievo inventarioFisico
+						new OleDbCommand("UPDATE InventarioFisico SET ID_ALMACEN=1 where ID_PRODUCTOS=2 ", conn); //UPDATE un inventario fisico  
+
 					reader = cmd.ExecuteReader();
 
 
