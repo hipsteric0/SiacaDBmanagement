@@ -80,24 +80,28 @@ namespace SiacaCSAccessDatabase
 			//else :
 
 			InventarioFisico inventarioFisico = new InventarioFisico();
-			int ExistenceOfProduct = inventarioFisico.SelectExistenceOfProduct();
-			inventarioFisico.GetInventarioFisicoFromSQLServer();
+			int ExistenceOfProduct = inventarioFisico.SelectExistenceOfProduct("123");
+			int newChanges =  inventarioFisico.GetInventarioFisicoFromSQLServer();
 
-			if (ExistenceOfProduct == 1)
+			if (newChanges == 1) //edita o anade solo cuando la api le informa que hubieron cambios
 			{
-				//en este caso se debe editar inventarioFisico y catProductos, solo los atributos de existencias
-				
-				inventarioFisico.EditInventarioFisico();
+				if (ExistenceOfProduct != 0)
+				{
+					//en este caso se debe editar inventarioFisico y catProductos, solo los atributos de existencias
+
+					inventarioFisico.EditInventarioFisico();
+				}
+				else
+				{
+
+
+					//en este caso se debe anadir un inventarioFisico y un catProductos
+					inventarioFisico.AddInventarioFisico();
+
+				}
+				//fill the log
 			}
-			else
-			{
 
-
-				//en este caso se debe anadir un inventarioFisico y un catProductos
-				inventarioFisico.AddInventarioFisico();
-
-			}
-			//fill the log
 		}
 	}
 }

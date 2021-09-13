@@ -4,6 +4,7 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SiacaCSAccessDatabase
 {
@@ -35,7 +36,7 @@ namespace SiacaCSAccessDatabase
 
 		}
 
-		public int SelectExistenceOfProduct()
+		public int SelectExistenceOfProduct(string clave_producto)
 		{
 
 			OleDbConnection conn = null;
@@ -47,15 +48,28 @@ namespace SiacaCSAccessDatabase
 				conn.Open();
 
 				OleDbCommand cmd =
-					new OleDbCommand("SELECT CatProductos.CLAVE_PRODUCTO FROM CatProductos WHERE(((CatProductos.CLAVE_PRODUCTO) = '4290003')); ", conn);   ///insert un nievo inventarioFisico
-
+					new OleDbCommand("SELECT CatProductos.ID_PRODUCTOS FROM CatProductos WHERE(((CatProductos.CLAVE_PRODUCTO) = @param)); ", conn);   ///insert un nievo inventarioFisico
+				cmd.Parameters.AddWithValue("@param",clave_producto);
 				reader = cmd.ExecuteReader();
 				
+
+
+				if (reader.Read()) //se ejecuta si el query encuentra algo 
+				{
+					//double variable = Convert.ToDouble(reader["CatProductos.CLAVE_PRODUCTO"].ToString());
+					Console.WriteLine(reader["ID_PRODUCTOS"].ToString());
+					MessageBox.Show(reader["ID_PRODUCTOS"].ToString());
+				}
+				else
+				{
+					return 0;
+				}
 
 			}
 			catch (Exception e)
 			{
 				Console.WriteLine("Hubo un error SelectExistenceOfProduct: " + e);
+				return 0;
 			}
 
 			finally
@@ -97,7 +111,7 @@ namespace SiacaCSAccessDatabase
 		}
 
 
-		public InventarioFisico GetInventarioFisicoFromSQLServer()
+		public int GetInventarioFisicoFromSQLServer()
 		{
 			int conToAPI=1;
 			//connect to api
@@ -106,7 +120,7 @@ namespace SiacaCSAccessDatabase
 				//si la conexion falla retorna un -1
 
 				//si no hay cambios nuevos retorna 0
-				return null;
+				return 0;
 			}
 
 			//manejar el json de la api
@@ -117,14 +131,14 @@ namespace SiacaCSAccessDatabase
 			this.id_almacen = 1;
 			this.id_productos = 1;
 			this.id_proveedor = 1;
-			this.cantidad = 1;
+			this.cantidad =8;
 			this.costo_unitario = 1;
 			this.ultimo_costo = 1;
 			this.subtotal = 1;
 			this.diferencia = 1;
-			this.existencias = 1;
+			this.existencias = 8;
 
-			return this;
+			return 1;
 		}
 
 
@@ -139,7 +153,7 @@ namespace SiacaCSAccessDatabase
 				conn.Open();
 
 				OleDbCommand cmd =
-					new OleDbCommand("UPDATE InventarioFisico SET ID_ALMACEN=5 where ID_PRODUCTOS=2 ", conn); //UPDATE un inventario fisico
+					new OleDbCommand("UPDATE InventarioFisico SET ID_ALMACEN=9 where ID_PRODUCTOS=2 ", conn); //UPDATE un inventario fisico
 				reader = cmd.ExecuteReader();
 
 			}
