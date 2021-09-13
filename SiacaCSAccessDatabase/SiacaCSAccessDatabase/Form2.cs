@@ -35,6 +35,9 @@ namespace SiacaCSAccessDatabase
 
 		}
 
+		
+		
+
 		private void button1_Click(object sender, EventArgs e)
 		{
 			byte TIPOINVENTARIO = 1;
@@ -64,39 +67,37 @@ namespace SiacaCSAccessDatabase
 				);
 		}
 
+		private void getInventarioFisicoData()
+		{
+
+		}
+
 		private void button2_Click(object sender, EventArgs e)
 		{
+
+			// se pregunta a la api si hay cambios nuevos
+			//si no hay, return
+			//else :
+
+			InventarioFisico inventarioFisico = new InventarioFisico();
+			int ExistenceOfProduct = inventarioFisico.SelectExistenceOfProduct();
+			inventarioFisico.GetInventarioFisicoFromSQLServer();
+
+			if (ExistenceOfProduct == 1)
 			{
-				OleDbConnection conn = null;
-				OleDbDataReader reader = null;
-				try
-				{
-					conn = new OleDbConnection(
-						"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\alero\\OneDrive\\Escritorio\\MP\\INV_13-11-19.i01;Persist Security Info=True;Jet OLEDB:Database Password=*");
-					conn.Open();
-
-					OleDbCommand cmd =
-						//new OleDbCommand("INSERT INTO InventarioFisico (TIPOINVENTARIO,ID_ALMACEN,ID_PRODUCTOS,ID_PROVEEDOR,CANTIDAD,COSTO_UNITARIO,ULTIMO_COSTO,SUB_TOTAL,DIFERENCIA,EXISTENCIAS) VALUES (1,1,1,1,1,1,1,1,1,1)", conn);   ///insert un nievo inventarioFisico
-						new OleDbCommand("UPDATE InventarioFisico SET ID_ALMACEN=1 where ID_PRODUCTOS=2 ", conn); //UPDATE un inventario fisico  
-
-					reader = cmd.ExecuteReader();
-
-
-					
-					//datagrid.DataSource = reader;
-					//datagrid.DataBind();
-				}
-				//        catch (Exception e)
-				//        {
-				//            Response.Write(e.Message);
-				//            Response.End();
-				//        }
-				finally
-				{
-					if (reader != null) reader.Close();
-					if (conn != null) conn.Close();
-				}
+				//en este caso se debe editar inventarioFisico y catProductos, solo los atributos de existencias
+				
+				inventarioFisico.EditInventarioFisico();
 			}
+			else
+			{
+
+
+				//en este caso se debe anadir un inventarioFisico y un catProductos
+				inventarioFisico.AddInventarioFisico();
+
+			}
+			//fill the log
 		}
 	}
 }
