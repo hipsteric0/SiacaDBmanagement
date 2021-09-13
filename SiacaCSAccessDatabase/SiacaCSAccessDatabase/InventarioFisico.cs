@@ -10,16 +10,16 @@ namespace SiacaCSAccessDatabase
 {
 	public class InventarioFisico
 	{
-		double tipoInventario;
-		double id_almacen;
-		double id_productos;
-		double id_proveedor;
-		double cantidad;
-		double costo_unitario;
-		double ultimo_costo;
-		double subtotal;
-		double diferencia;
-		double existencias;
+		public double tipoInventario;
+		public double id_almacen;
+		public double id_productos;
+		public double id_proveedor;
+		public double cantidad;
+		public double costo_unitario;
+		public double ultimo_costo;
+		public double subtotal;
+		public double diferencia;
+		public double existencias;
 
 		public InventarioFisico(/*double tipoinventario, double id_almacen, double id_productos, double id_proveedor, double cantidad, double costo_unitario, double ultimo_costo, double subtotal, double diferencia, double existencias*/)
 		{
@@ -36,7 +36,8 @@ namespace SiacaCSAccessDatabase
 
 		}
 
-		public int SelectExistenceOfProduct(string clave_producto)
+		
+		public double SelectExistenceOfProduct(string clave_producto)
 		{
 
 			OleDbConnection conn = null;
@@ -50,15 +51,20 @@ namespace SiacaCSAccessDatabase
 				OleDbCommand cmd =
 					new OleDbCommand("SELECT CatProductos.ID_PRODUCTOS FROM CatProductos WHERE(((CatProductos.CLAVE_PRODUCTO) = @param)); ", conn);   ///insert un nievo inventarioFisico
 				cmd.Parameters.AddWithValue("@param",clave_producto);
+				MessageBox.Show("QUERY: " + clave_producto);
 				reader = cmd.ExecuteReader();
 				
 
 
+
 				if (reader.Read()) //se ejecuta si el query encuentra algo 
 				{
-					//double variable = Convert.ToDouble(reader["CatProductos.CLAVE_PRODUCTO"].ToString());
-					Console.WriteLine(reader["ID_PRODUCTOS"].ToString());
-					MessageBox.Show(reader["ID_PRODUCTOS"].ToString());
+					double x = Convert.ToDouble(reader["ID_PRODUCTOS"].ToString());
+					this.id_productos = x;
+					if (reader != null) reader.Close();
+					if (conn != null) conn.Close();
+					return x;
+
 				}
 				else
 				{
@@ -77,7 +83,7 @@ namespace SiacaCSAccessDatabase
 				if (reader != null) reader.Close();
 				if (conn != null) conn.Close();
 			}
-			return 1;
+			
 		}
 
 		public int AddInventarioFisico()
@@ -131,12 +137,12 @@ namespace SiacaCSAccessDatabase
 			this.id_almacen = 1;
 			this.id_productos = 1;
 			this.id_proveedor = 1;
-			this.cantidad =8;
+			this.cantidad =10000;
 			this.costo_unitario = 1;
 			this.ultimo_costo = 1;
 			this.subtotal = 1;
 			this.diferencia = 1;
-			this.existencias = 8;
+			this.existencias = 10000;
 
 			return 1;
 		}
@@ -153,8 +159,16 @@ namespace SiacaCSAccessDatabase
 				conn.Open();
 
 				OleDbCommand cmd =
-					new OleDbCommand("UPDATE InventarioFisico SET ID_ALMACEN=9 where ID_PRODUCTOS=2 ", conn); //UPDATE un inventario fisico
-				reader = cmd.ExecuteReader();
+					new OleDbCommand("UPDATE InventarioFisico SET CANTIDAD=@cant, EXISTENCIAS=@existencias WHERE ID_PRODUCTOS=@id_prod; ", conn); //UPDATE un inventario fisico
+				cmd.Parameters.AddWithValue("@cant",this.cantidad);
+				cmd.Parameters.AddWithValue("@existencias", this.existencias);
+				cmd.Parameters.AddWithValue("@id_prod",this.id_productos);
+				
+
+				MessageBox.Show("cantidad " + this.cantidad + " idprod " + this.id_productos + " existencias " + this.existencias);
+
+				var recordupdated = cmd.ExecuteNonQuery();
+				MessageBox.Show(""+ recordupdated);
 
 			}
 			catch (Exception e)
