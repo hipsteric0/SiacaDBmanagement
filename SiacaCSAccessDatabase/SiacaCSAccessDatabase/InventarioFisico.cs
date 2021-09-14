@@ -20,6 +20,7 @@ namespace SiacaCSAccessDatabase
 		public double subtotal;
 		public double diferencia;
 		public double existencias;
+		public string clave_producto;
 
 		public InventarioFisico(/*double tipoinventario, double id_almacen, double id_productos, double id_proveedor, double cantidad, double costo_unitario, double ultimo_costo, double subtotal, double diferencia, double existencias*/)
 		{
@@ -37,7 +38,7 @@ namespace SiacaCSAccessDatabase
 		}
 
 		
-		public double SelectExistenceOfProduct(string clave_producto)
+		public double SelectExistenceOfProduct()
 		{
 
 			OleDbConnection conn = null;
@@ -50,8 +51,8 @@ namespace SiacaCSAccessDatabase
 
 				OleDbCommand cmd =
 					new OleDbCommand("SELECT CatProductos.ID_PRODUCTOS FROM CatProductos WHERE(((CatProductos.CLAVE_PRODUCTO) = @param)); ", conn);   ///insert un nievo inventarioFisico
-				cmd.Parameters.AddWithValue("@param",clave_producto);
-				MessageBox.Show("QUERY: " + clave_producto);
+				cmd.Parameters.AddWithValue("@param",this.clave_producto);
+				//MessageBox.Show("QUERY: " + this.clave_producto);
 				reader = cmd.ExecuteReader();
 				
 
@@ -137,12 +138,13 @@ namespace SiacaCSAccessDatabase
 			this.id_almacen = 1;
 			this.id_productos = 1;
 			this.id_proveedor = 1;
-			this.cantidad =10000;
+			this.cantidad =252;
 			this.costo_unitario = 1;
 			this.ultimo_costo = 1;
 			this.subtotal = 1;
 			this.diferencia = 1;
-			this.existencias = 10000;
+			this.existencias = 252;
+			this.clave_producto = "01110017";
 
 			return 1;
 		}
@@ -165,10 +167,10 @@ namespace SiacaCSAccessDatabase
 				cmd.Parameters.AddWithValue("@id_prod",this.id_productos);
 				
 
-				MessageBox.Show("cantidad " + this.cantidad + " idprod " + this.id_productos + " existencias " + this.existencias);
+				//MessageBox.Show("cantidad " + this.cantidad + " idprod " + this.id_productos + " existencias " + this.existencias);
 
 				var recordupdated = cmd.ExecuteNonQuery();
-				MessageBox.Show(""+ recordupdated);
+				//MessageBox.Show(""+ recordupdated);
 
 			}
 			catch (Exception e)
