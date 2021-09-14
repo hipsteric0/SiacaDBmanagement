@@ -91,20 +91,25 @@ namespace SiacaCSAccessDatabase
 				MessageBox.Show("ID OF PROD: " + ExistenceOfProduct);
 
 
-				if (ExistenceOfProduct != 0)
+				if (ExistenceOfProduct != 0)//si el producto existe
 				{
 					//en este caso se debe editar inventarioFisico y catProductos, solo los atributos de existencias
 					catProducto.clave_producto = inventarioFisico.clave_producto;
 					catProducto.existencias = inventarioFisico.cantidad;
 					catProducto.id_productos = ExistenceOfProduct;
+
 					inventarioFisico.EditInventarioFisico();
 					catProducto.EditCatProducto();
 				}
-				else
+				else // si el producto no existe
 				{
 
+					//en este caso se debe insertar un inventarioFisico y un catProductos
+					double topInventarioFisico = inventarioFisico.GetTopIdInventarioFisico();
+					inventarioFisico.id_productos = topInventarioFisico;
+					catProducto.id_productos = topInventarioFisico;
+					catProducto.existencias = inventarioFisico.cantidad;
 
-					//en este caso se debe anadir un inventarioFisico y un catProductos
 					inventarioFisico.AddInventarioFisico();
 
 				}

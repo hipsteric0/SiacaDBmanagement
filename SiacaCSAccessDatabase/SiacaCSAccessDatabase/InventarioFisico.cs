@@ -38,7 +38,7 @@ namespace SiacaCSAccessDatabase
 		}
 
 		
-		public double SelectExistenceOfProduct()
+		public double SelectExistenceOfProduct() //devuelve si existe una clave_producto en la tabla CatProductos
 		{
 
 			OleDbConnection conn = null;
@@ -98,7 +98,15 @@ namespace SiacaCSAccessDatabase
 				conn.Open();
 
 				OleDbCommand cmd =
-					new OleDbCommand("INSERT INTO InventarioFisico (TIPOINVENTARIO,ID_ALMACEN,ID_PRODUCTOS,ID_PROVEEDOR,CANTIDAD,COSTO_UNITARIO,ULTIMO_COSTO,SUB_TOTAL,DIFERENCIA,EXISTENCIAS) VALUES (1,1,1,1,1,1,1,1,1,1)", conn);   ///insert un nievo inventarioFisico
+					new OleDbCommand("INSERT INTO InventarioFisico (TIPOINVENTARIO,ID_PRODUCTOS,CANTIDAD,COSTO_UNITARIO,ULTIMO_COSTO,SUB_TOTAL,DIFERENCIA,EXISTENCIAS) VALUES (@tipoInventario,@id_productos,@cantidad,@costo_unitario,@ultimo_costo,@subtotal,@diferencia,@existencias)", conn);   ///insert un nievo inventarioFisico
+				cmd.Parameters.AddWithValue("@tipoInventario", this.tipoInventario);
+				cmd.Parameters.AddWithValue("@id_productos", this.id_productos);
+				cmd.Parameters.AddWithValue("@cantidad", this.cantidad);
+				cmd.Parameters.AddWithValue("@costo_unitario", this.costo_unitario);
+				cmd.Parameters.AddWithValue("@ultimo_costo", this.ultimo_costo);
+				cmd.Parameters.AddWithValue("@subtotal", this.subtotal);
+				cmd.Parameters.AddWithValue("@diferencia", this.diferencia);
+				cmd.Parameters.AddWithValue("@existencias", this.existencias);
 
 				reader = cmd.ExecuteReader();
 
@@ -139,12 +147,12 @@ namespace SiacaCSAccessDatabase
 			this.id_productos = 1;
 			this.id_proveedor = 1;
 			this.cantidad =252;
-			this.costo_unitario = 1;
-			this.ultimo_costo = 1;
-			this.subtotal = 1;
-			this.diferencia = 1;
+			this.costo_unitario = 0;
+			this.ultimo_costo = 0;
+			this.subtotal = 0;
+			this.diferencia = 0;
 			this.existencias = 252;
-			this.clave_producto = "01110017";
+			this.clave_producto = "123";
 
 			return 1;
 		}
@@ -184,6 +192,53 @@ namespace SiacaCSAccessDatabase
 				if (conn != null) conn.Close();
 			}
 			return 1;
+		}
+
+		public double GetTopIdInventarioFisico()
+		{
+			
+			OleDbConnection conn = null;
+			OleDbDataReader reader = null;
+			try
+			{
+				conn = new OleDbConnection(
+					"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\jose romero\\Desktop\\MP\\INV_13-11-19.i01;Persist Security Info=True;Jet OLEDB:Database Password=*");
+				conn.Open();
+
+				OleDbCommand cmd =
+					new OleDbCommand("SELECT TOP 1 ID_PRODUCTOS FROM InventarioFisico ORDER BY ID_PRODUCTOS DESC;", conn);   ///insert un nievo inventarioFisico
+				
+				reader = cmd.ExecuteReader();
+
+
+			if (reader.Read()) //se ejecuta si el query encuentra algo 
+			{
+				double x = Convert.ToDouble(reader["ID_PRODUCTOS"].ToString()) +1;
+					//MessageBox.Show("" + x);
+				if (reader != null) reader.Close();
+				if (conn != null) conn.Close();
+				return x;
+
+			}
+			else
+			{
+				return 0;
+			}
+
+			}
+			catch (Exception e)
+			{
+					Console.WriteLine("Hubo un error GetTopIdInventarioFisico: " + e);
+					return 0;
+			}
+
+			finally
+			{
+					if (reader != null) reader.Close();
+					if (conn != null) conn.Close();
+			}
+
+			
 		}
 
 	}
