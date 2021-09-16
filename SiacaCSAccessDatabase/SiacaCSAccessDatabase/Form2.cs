@@ -108,9 +108,12 @@ namespace SiacaCSAccessDatabase
 					double topInventarioFisico = inventarioFisico.GetTopIdInventarioFisico();
 					inventarioFisico.id_productos = topInventarioFisico;
 					catProducto.id_productos = topInventarioFisico;
+					catProducto.clave_producto = inventarioFisico.clave_producto;
 					catProducto.existencias = inventarioFisico.cantidad;
 
+					catProducto.AddCatProducto();
 					inventarioFisico.AddInventarioFisico();
+					
 
 				}
 				//fill the log

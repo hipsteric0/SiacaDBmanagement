@@ -22,6 +22,7 @@ namespace SiacaCSAccessDatabase
 		public double existencias;
 		public string clave_producto;
 
+
 		public InventarioFisico(/*double tipoinventario, double id_almacen, double id_productos, double id_proveedor, double cantidad, double costo_unitario, double ultimo_costo, double subtotal, double diferencia, double existencias*/)
 		{
 			/*this.tipoInventario = tipoinventario;
@@ -96,9 +97,11 @@ namespace SiacaCSAccessDatabase
 				conn = new OleDbConnection(
 					"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\jose romero\\Desktop\\MP\\INV_13-11-19.i01;Persist Security Info=True;Jet OLEDB:Database Password=*");
 				conn.Open();
-
+				MessageBox.Show("ID tope:" +this.id_productos);
 				OleDbCommand cmd =
-					new OleDbCommand("INSERT INTO InventarioFisico (TIPOINVENTARIO,ID_PRODUCTOS,CANTIDAD,COSTO_UNITARIO,ULTIMO_COSTO,SUB_TOTAL,DIFERENCIA,EXISTENCIAS) VALUES (@tipoInventario,@id_productos,@cantidad,@costo_unitario,@ultimo_costo,@subtotal,@diferencia,@existencias)", conn);   ///insert un nievo inventarioFisico
+					new OleDbCommand("INSERT INTO InventarioFisico (TIPOINVENTARIO,ID_PRODUCTOS,CANTIDAD,COSTO_UNITARIO,ULTIMO_COSTO,SUB_TOTAL,DIFERENCIA,EXISTENCIAS) VALUES (@tipoInventario,@id_productos,@cantidad,@costo_unitario,@ultimo_costo,@subtotal,@diferencia,@existencias);", conn);   ///insert un nievo inventarioFisico
+					//new OleDbCommand("INSERT INTO InventarioFisico (TIPOINVENTARIO,ID_PRODUCTOS,CANTIDAD,COSTO_UNITARIO,ULTIMO_COSTO,SUB_TOTAL,DIFERENCIA,EXISTENCIAS) VALUES (2,@id_productos,1,1,1,1,1,1);", conn);   ///insert un nievo inventarioFisico
+
 				cmd.Parameters.AddWithValue("@tipoInventario", this.tipoInventario);
 				cmd.Parameters.AddWithValue("@id_productos", this.id_productos);
 				cmd.Parameters.AddWithValue("@cantidad", this.cantidad);

@@ -13,7 +13,7 @@ namespace SiacaCSAccessDatabase
 		public double id_productos;
 		public string clave_fabricante;
 		public string clave_producto;
-		public string producto;
+		public string producto = "producto generico";
 		//string especificaciones;
 		public double id_unidades;
 		public double nivel_maximo;
@@ -103,7 +103,43 @@ namespace SiacaCSAccessDatabase
 			return 1;
 		}
 
-		
+		public int AddCatProducto()
+		{
+			OleDbConnection conn = null;
+			OleDbDataReader reader = null;
+			try
+			{
+				conn = new OleDbConnection(
+					"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\jose romero\\Desktop\\MP\\INV_13-11-19.i01;Persist Security Info=True;Jet OLEDB:Database Password=*");
+				conn.Open();
+				
+				OleDbCommand cmd =
+					new OleDbCommand("INSERT INTO Catproductos (ID_PRODUCTOS,CLAVE_PRODUCTO,PRODUCTO,EXISTENCIAS,PROMEDIO) VALUES (@id_productos,@clave_producto,@producto,@existencias,@promedio);", conn);   ///insert un nievo inventarioFisico
+				//new OleDbCommand("INSERT INTO InventarioFisico (TIPOINVENTARIO,ID_PRODUCTOS,CANTIDAD,COSTO_UNITARIO,ULTIMO_COSTO,SUB_TOTAL,DIFERENCIA,EXISTENCIAS) VALUES (2,@id_productos,1,1,1,1,1,1);", conn);   ///insert un nievo inventarioFisico
+
+				cmd.Parameters.AddWithValue("@id_productos", this.id_productos);
+				cmd.Parameters.AddWithValue("@clave_producto", this.clave_producto);
+				cmd.Parameters.AddWithValue("@producto", this.producto);
+				cmd.Parameters.AddWithValue("@existencias", this.existencias);
+				cmd.Parameters.AddWithValue("@promedio", 0);
+
+
+				reader = cmd.ExecuteReader();
+
+
+			}
+			catch (Exception e)
+			{
+				return 0;
+			}
+
+			finally
+			{
+				if (reader != null) reader.Close();
+				if (conn != null) conn.Close();
+			}
+			return 1;
+		}
 
 	}
 }
