@@ -110,6 +110,7 @@ namespace SiacaCSAccessDatabase
 					catProducto.id_productos = topInventarioFisico;
 					catProducto.clave_producto = inventarioFisico.clave_producto;
 					catProducto.existencias = inventarioFisico.cantidad;
+					catProducto.producto = inventarioFisico.producto;
 
 					catProducto.AddCatProducto();
 					inventarioFisico.AddInventarioFisico();
