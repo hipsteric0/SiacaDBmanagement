@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "8SkMBzdFPKh901HHwPWIITsHUWdSwCmoyr+BVICN19evUa6L4vRBFzuw2NraCc0qF0cPASRM2HLVc96V6ZFVXA==",
+  "dgSpecHash": "uXct51Te/6mfqqLU2AN96XtH0hX3iQP08/hfXpezGyPOmwxOxQCJZlD462FmU5qLwoAQl/+EI3oUWsWQ1T1Ipg==",
   "success": true,
   "projectFilePath": "C:\\Users\\jose romero\\Documents\\GitHub\\SiacaDBmanagement\\SiacaCSAPI\\SiacaCSAPI\\SiacaCSAPI.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\jose romero\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.10\\microsoft.aspnetcore.jsonpatch.5.0.10.nupkg.sha512",
+    "C:\\Users\\jose romero\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\5.0.10\\microsoft.aspnetcore.mvc.newtonsoftjson.5.0.10.nupkg.sha512",
+    "C:\\Users\\jose romero\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\jose romero\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\jose romero\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
+  ],
   "logs": []
 }
