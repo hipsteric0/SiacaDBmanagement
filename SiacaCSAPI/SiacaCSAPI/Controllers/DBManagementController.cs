@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
+using SiacaCSAPI.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,7 +15,7 @@ namespace SiacaCSAPI.Controllers
 	[ApiController]
 	public class DBManagementController : ControllerBase
 	{
-		[HttpGet]
+		/*[HttpGet]
 		public IActionResult Get(JObject id)
 		{
 			try
@@ -28,7 +29,7 @@ namespace SiacaCSAPI.Controllers
 
 				SqlCommand cmd = new SqlCommand(query, con);
 
-				cmd.Parameters.Add(new SqlParameter("@ID",Convert.ToDouble( id["value"])));
+				cmd.Parameters.Add(new SqlParameter("@ID",Convert.ToDouble(id["value"])));
 				DataTable dt = new DataTable();
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
 				con.Open();
@@ -64,6 +65,62 @@ namespace SiacaCSAPI.Controllers
 			}
 
 			return Ok("no data");
+
+		}*/
+
+		[HttpGet]
+		public NewChangesForm NewChanges()
+		{
+			
+			try
+			{
+				NewChangesForm newChangesForm = new NewChangesForm();
+				SqlConnection con = new SqlConnection();
+				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_API;Integrated Security=True";
+				//int Id = 2;
+
+				var query = "SELECT COUNT (id) AS Contador FROM Cambios;";
+				String str = "";
+
+				SqlCommand cmd = new SqlCommand(query, con);
+
+				//cmd.Parameters.Add(new SqlParameter("@ID", Convert.ToDouble(id["value"])));
+				DataTable dt = new DataTable();
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				con.Open();
+				//datareader quizas es una mejor forma de sacar valores
+				da.Fill(dt);
+				string newChanges = "";
+
+				foreach (DataRow row in dt.Rows)
+				{
+
+					newChanges = row["Contador"].ToString();
+					//String FamilyName = row["Apellido"].ToString();
+					//String ID = row["Cedula"].ToString();
+					//str = Name + " " + FamilyName + " " + ID;
+				}
+
+				// (using) is BS
+				//make sure to check for null values when retrieving the data
+
+
+
+				newChangesForm.cantidadDeCambios = Convert.ToInt32(newChanges);
+				//MessageBox.Show(str);
+				Console.WriteLine(str);
+				return newChangesForm;
+			}
+			catch (Exception e)
+			{
+				return null;
+			}
+			finally
+			{
+
+			}
+
+			//return Ok("no data");
 
 		}
 
