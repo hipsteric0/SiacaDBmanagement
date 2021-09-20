@@ -68,6 +68,7 @@ namespace SiacaCSAPI.Controllers
 
 		}*/
 
+		[Route("CambiosNuevos")]
 		[HttpGet]
 		public NewChangesForm NewChanges()
 		{

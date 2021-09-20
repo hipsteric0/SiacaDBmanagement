@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using SiacaCSAccessDatabase.Entities;
+using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace SiacaCSAccessDatabase
 {
@@ -132,17 +136,58 @@ namespace SiacaCSAccessDatabase
 		}
 
 
+		public int CantidadDeCambiosEnAPI()
+		{
+			
+
+			try{
+				var client = new WebClient();
+				string responseString = client.DownloadString("http://localhost:9645/api/dbmanagement/CambiosNuevos");
+				//HAY QUE REVISAR EL TIMEOUT
+				
+				NewChangesForm newChangesForm = JsonConvert.DeserializeObject<NewChangesForm>(responseString);
+
+				MessageBox.Show("cantidad de cambios en api: "+ newChangesForm.cantidadDeCambios.ToString());
+
+			
+
+				return newChangesForm.cantidadDeCambios;
+
+			}
+			catch (Exception e)
+			{
+				return -1; //aca pudiera ser return -1 para saber que hubo un error
+			}
+
+			
+
+			
+		}
+
 		public int GetInventarioFisicoFromSQLServer()
 		{
-			int conToAPI=1;
-			//connect to api
+			int conToAPI= CantidadDeCambiosEnAPI();
+
+
 			if (conToAPI == 0)
 			{
-				//si la conexion falla retorna un -1
-
-				//si no hay cambios nuevos retorna 0
+				//no existen cambios nuevos
 				return 0;
 			}
+
+			if (conToAPI == -1)
+			{
+				// hubo un error de conexion
+				//escribir en el log que no pudo realizar la conexion
+
+				return 0;
+			}
+
+			//Si entra aca es por que hay cambios nuevos
+			//se debe pedir a la api el cambio de menor id, pues es el mas antiguo
+
+
+
 
 			//manejar el json de la api
 			//asignar el json de a api a this
