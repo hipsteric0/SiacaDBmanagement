@@ -15,7 +15,7 @@ namespace SiacaCSAPI.Controllers
 	public class DBManagementController : ControllerBase
 	{
 		[HttpGet]
-		public IActionResult Get()
+		public IActionResult Get(JObject id)
 		{
 			try
 			{
@@ -28,7 +28,7 @@ namespace SiacaCSAPI.Controllers
 
 				SqlCommand cmd = new SqlCommand(query, con);
 
-				cmd.Parameters.Add(new SqlParameter("@ID", Id));
+				cmd.Parameters.Add(new SqlParameter("@ID",Convert.ToDouble( id["value"])));
 				DataTable dt = new DataTable();
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
 				con.Open();

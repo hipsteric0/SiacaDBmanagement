@@ -20,7 +20,7 @@ namespace SiacaCSAccessDatabase
 		public double nivel_minimo;
 		public double existencias;
 		public double precio;
-		public string localizacion;
+		public string localizacion = "localizacion";
 		public DateTime fecha;
 		public bool activo;
 		public bool serie;
@@ -114,7 +114,7 @@ namespace SiacaCSAccessDatabase
 				conn.Open();
 				
 				OleDbCommand cmd =
-					new OleDbCommand("INSERT INTO Catproductos (ID_PRODUCTOS,CLAVE_PRODUCTO,PRODUCTO,EXISTENCIAS,PROMEDIO) VALUES (@id_productos,@clave_producto,@producto,@existencias,@promedio);", conn);   ///insert un nievo inventarioFisico
+					new OleDbCommand("INSERT INTO Catproductos (ID_PRODUCTOS,CLAVE_PRODUCTO,PRODUCTO,EXISTENCIAS,PROMEDIO,ID_UNIDADES,LOCALIZACION,FECHA,ACTIVO) VALUES (@id_productos,@clave_producto,@producto,@existencias,@promedio,@id_unidades,@localizacion,@fecha,@activo);", conn);   ///insert un nievo inventarioFisico
 				//new OleDbCommand("INSERT INTO InventarioFisico (TIPOINVENTARIO,ID_PRODUCTOS,CANTIDAD,COSTO_UNITARIO,ULTIMO_COSTO,SUB_TOTAL,DIFERENCIA,EXISTENCIAS) VALUES (2,@id_productos,1,1,1,1,1,1);", conn);   ///insert un nievo inventarioFisico
 
 				cmd.Parameters.AddWithValue("@id_productos", this.id_productos);
@@ -122,6 +122,10 @@ namespace SiacaCSAccessDatabase
 				cmd.Parameters.AddWithValue("@producto", this.producto);
 				cmd.Parameters.AddWithValue("@existencias", this.existencias);
 				cmd.Parameters.AddWithValue("@promedio", 0);
+				cmd.Parameters.AddWithValue("@id_unidades", 1);
+				cmd.Parameters.AddWithValue("@localizacion", this.localizacion);
+				cmd.Parameters.AddWithValue("@fecha", this.fecha);
+				cmd.Parameters.AddWithValue("@activo", this.activo);
 
 
 				reader = cmd.ExecuteReader();

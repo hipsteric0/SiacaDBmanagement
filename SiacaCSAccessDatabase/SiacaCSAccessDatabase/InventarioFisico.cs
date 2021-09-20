@@ -22,6 +22,9 @@ namespace SiacaCSAccessDatabase
 		public double existencias;
 		public string clave_producto;
 		public string producto;
+		public string localizacion;
+		public DateTime fecha;
+		public bool activo;
 
 		public InventarioFisico(/*double tipoinventario, double id_almacen, double id_productos, double id_proveedor, double cantidad, double costo_unitario, double ultimo_costo, double subtotal, double diferencia, double existencias*/)
 		{
@@ -155,8 +158,11 @@ namespace SiacaCSAccessDatabase
 			this.subtotal = 0;
 			this.diferencia = 0;
 			this.existencias = 252;
-			this.clave_producto = "1234";
+			this.clave_producto = "321";
 			this.producto = "producto generico 2";
+			this.localizacion = "A1-01";
+			this.fecha = DateTime.Today;
+			this.activo = true;
 
 			return 1;
 		}
