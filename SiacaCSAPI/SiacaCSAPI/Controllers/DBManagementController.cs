@@ -15,21 +15,24 @@ namespace SiacaCSAPI.Controllers
 	[ApiController]
 	public class DBManagementController : ControllerBase
 	{
-		/*[HttpGet]
-		public IActionResult Get(JObject id)
+		[Route("ConsultarUnCambioNuevo")]
+		[HttpGet]
+		public CambiosForm GetCambios()
 		{
+			CambiosForm cambiosForm = new CambiosForm();
 			try
 			{
+				
 				SqlConnection con = new SqlConnection();
-				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=Prueba;Integrated Security=True";
+				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_API;Integrated Security=True";
 				int Id = 2;
 
-				var query = "SELECT id,nombre,apellido,cedula FROM TablaDePrueba WHERE id = @ID;";
+				var query = "SELECT TOP (1) * FROM Cambios ORDER BY Id ASC;";
 				String str = "";
 
 				SqlCommand cmd = new SqlCommand(query, con);
 
-				cmd.Parameters.Add(new SqlParameter("@ID",Convert.ToDouble(id["value"])));
+				//cmd.Parameters.Add(new SqlParameter("@ID",Convert.ToDouble(id["value"])));
 				DataTable dt = new DataTable();
 				SqlDataAdapter da = new SqlDataAdapter(cmd);
 				con.Open();
@@ -39,10 +42,26 @@ namespace SiacaCSAPI.Controllers
 				foreach (DataRow row in dt.Rows)
 				{
 
-					String Name = row["Nombre"].ToString();
+					/*String Name = row["Nombre"].ToString();
 					String FamilyName = row["Apellido"].ToString();
-					String ID = row["Cedula"].ToString();
-					str = Name + " " + FamilyName + " " + ID;
+					String ID = row["Cedula"].ToString();*/
+
+					cambiosForm.id= Convert.ToDouble(row["Id"].ToString());
+					cambiosForm.tipo_inventario = Convert.ToDouble(row["Tipo_Inventario"].ToString());
+					cambiosForm.id_almacen = Convert.ToDouble(row["Id_Almacen"].ToString());
+					cambiosForm.id_productos = Convert.ToDouble(row["Id_Productos"].ToString());
+					cambiosForm.id_proveedor = Convert.ToDouble(row["Id_Proveedor"].ToString());
+					cambiosForm.cantidad = Convert.ToDouble(row["Cantidad"].ToString());
+					cambiosForm.costo_unitario = Convert.ToDouble(row["Costo_Unitario"].ToString());
+					cambiosForm.ultimo_costo = Convert.ToDouble(row["Ultimo_Costo"].ToString());
+					cambiosForm.subtotal = Convert.ToDouble(row["Subtotal"].ToString());
+					cambiosForm.diferencia = Convert.ToDouble(row["Diferencia"].ToString());
+					cambiosForm.existencias = Convert.ToDouble(row["Existencias"].ToString());
+					cambiosForm.clave_producto = row["Clave_Producto"].ToString();
+					cambiosForm.producto = row["Producto"].ToString();
+					cambiosForm.localizacion = row["Localizacion"].ToString();
+					cambiosForm.fecha = Convert.ToDateTime( row["Fecha"].ToString());
+					cambiosForm.activo = Convert.ToBoolean( row["Activo"].ToString());
 				}
 
 				// (using) is BS
@@ -51,22 +70,21 @@ namespace SiacaCSAPI.Controllers
 
 
 
-				//MessageBox.Show(str);
-				Console.WriteLine(str);
-				return Ok(str);
+				
+				return cambiosForm;
 			}
 			catch(Exception e)
 			{
-				return BadRequest(e);
+				return cambiosForm;
 			}
 			finally
 			{
 
 			}
 
-			return Ok("no data");
+			return null;
 
-		}*/
+		}
 
 		[Route("CambiosNuevos")]
 		[HttpGet]

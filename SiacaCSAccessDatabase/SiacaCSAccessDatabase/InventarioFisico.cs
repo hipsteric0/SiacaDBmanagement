@@ -164,6 +164,49 @@ namespace SiacaCSAccessDatabase
 			
 		}
 
+		public double GetCambioFromAPI()
+		{
+
+
+			try
+			{
+				var client = new WebClient();
+				string responseString = client.DownloadString("http://localhost:9645/api/dbmanagement/consultarUnCambioNuevo");
+				//HAY QUE REVISAR EL TIMEOUT
+
+				CambiosForm cambiosForm = JsonConvert.DeserializeObject<CambiosForm>(responseString);
+
+				this.tipoInventario = cambiosForm.tipo_inventario;
+				this.id_almacen = cambiosForm.id_almacen;
+				this.id_productos = cambiosForm.id_productos;
+				this.id_proveedor = cambiosForm.id_proveedor;
+				this.cantidad = cambiosForm.cantidad;
+				this.costo_unitario = cambiosForm.costo_unitario;
+				this.ultimo_costo = cambiosForm.ultimo_costo;
+				this.subtotal = cambiosForm.subtotal;
+				this.diferencia = cambiosForm.diferencia;
+				this.existencias = cambiosForm.existencias;
+				this.clave_producto = cambiosForm.clave_producto;
+				this.producto = cambiosForm.producto;
+				this.localizacion = cambiosForm.localizacion;
+				this.fecha = cambiosForm.fecha;
+				this.activo = cambiosForm.activo;
+
+
+				//BORRAR DE LA BD DE LA API EL CAMBIO REALIZADO
+				return cambiosForm.id;
+
+			}
+			catch (Exception e)
+			{
+				return 0; //aca pudiera ser return -1 para saber que hubo un error
+			}
+
+
+
+
+		}
+
 		public int GetInventarioFisicoFromSQLServer()
 		{
 			int conToAPI= CantidadDeCambiosEnAPI();
@@ -172,6 +215,7 @@ namespace SiacaCSAccessDatabase
 			if (conToAPI == 0)
 			{
 				//no existen cambios nuevos
+				MessageBox.Show("NO HAY CAMBIOS NUEVOS");
 				return 0;
 			}
 
@@ -179,21 +223,21 @@ namespace SiacaCSAccessDatabase
 			{
 				// hubo un error de conexion
 				//escribir en el log que no pudo realizar la conexion
-
+				MessageBox.Show("NO HAY CONEXION");
 				return 0;
 			}
 
 			//Si entra aca es por que hay cambios nuevos
 			//se debe pedir a la api el cambio de menor id, pues es el mas antiguo
 
-
+			Double ApiIdToDelete =  GetCambioFromAPI();
 
 
 			//manejar el json de la api
 			//asignar el json de a api a this
 
 			//PLACEHOLDER:
-			this.tipoInventario = 1;
+			/*this.tipoInventario = 1;
 			this.id_almacen = 1;
 			this.id_productos = 1;
 			this.id_proveedor = 1;
@@ -207,7 +251,7 @@ namespace SiacaCSAccessDatabase
 			this.producto = "producto generico 2";
 			this.localizacion = "A1-01";
 			this.fecha = DateTime.Today;
-			this.activo = true;
+			this.activo = true;*/
 
 			return 1;
 		}

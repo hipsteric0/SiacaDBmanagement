@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CatProducto.cs" />
+    <Compile Include="Entities\CambiosForm.cs" />
     <Compile Include="Entities\NewChangesForm.cs" />
     <Compile Include="InventarioFisico.cs" />
     <Compile Include="Form1.cs">
