@@ -135,6 +135,27 @@ namespace SiacaCSAccessDatabase
 			return 1;
 		}
 
+		public int DeleteCambioEnAPI(double idAEliminar)///problema
+		{
+			try
+			{
+				var client = new WebClient();
+
+				DeleteCambioForm deleteCambioForm = new DeleteCambioForm();
+				deleteCambioForm.id = Convert.ToInt64(idAEliminar);
+				string data = JsonConvert.SerializeObject(deleteCambioForm);
+				MessageBox.Show("LO QUE SE ENVIA A LA API ES: "+ data);
+				client.Headers["Content-Type"] = "application/json";
+				var result = client.UploadString("http://localhost:9645/api/dbmanagement/DeleteCambio", data);//quizas aca es download en vez de upload
+
+				//MessageBox.Show("el resultado es:" + result);
+			}
+			catch (Exception e)
+			{
+				return -1; //aca pudiera ser return -1 para saber que hubo un error
+			}
+			return 0;
+		}
 
 		public int CantidadDeCambiosEnAPI()
 		{
@@ -171,6 +192,7 @@ namespace SiacaCSAccessDatabase
 			try
 			{
 				var client = new WebClient();
+
 				string responseString = client.DownloadString("http://localhost:9645/api/dbmanagement/consultarUnCambioNuevo");
 				//HAY QUE REVISAR EL TIMEOUT
 
@@ -194,6 +216,9 @@ namespace SiacaCSAccessDatabase
 
 
 				//BORRAR DE LA BD DE LA API EL CAMBIO REALIZADO
+				int y = DeleteCambioEnAPI(cambiosForm.id);
+
+				MessageBox.Show("return delete: " + y);
 				return cambiosForm.id;
 
 			}

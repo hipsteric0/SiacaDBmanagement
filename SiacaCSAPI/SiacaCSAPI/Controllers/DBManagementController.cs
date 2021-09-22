@@ -15,6 +15,51 @@ namespace SiacaCSAPI.Controllers
 	[ApiController]
 	public class DBManagementController : ControllerBase
 	{
+
+	
+
+		[Route("DeleteCambio")]
+		[HttpPost]
+		public string DeleteCambio(JObject jObject)
+		{
+			CambiosForm cambiosForm = new CambiosForm();
+			try
+			{
+				Console.WriteLine("Jobject ID: " + jObject["id"]);
+				SqlConnection con = new SqlConnection();
+				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_API;Integrated Security=True";
+				int Id = 2;
+		
+				
+				var query = "DELETE FROM Cambios WHERE Id=@id;";
+				SqlCommand cmd = new SqlCommand(query, con);
+				cmd.Parameters.Add(new SqlParameter("@id", Convert.ToDouble(jObject["id"])));
+				con.Open();
+				cmd.ExecuteNonQuery();
+
+				
+				DataTable dt = new DataTable();
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+				//datareader quizas es una mejor forma de sacar valores
+				//Console.WriteLine("EMPRIMIO");
+				con.Close();
+
+				return ("corrio bien");
+			}
+			catch (Exception e)
+			{
+				return "corrio mal";
+			}
+			finally
+			{
+
+			}
+
+			return null;
+
+		}
+
 		[Route("ConsultarUnCambioNuevo")]
 		[HttpGet]
 		public CambiosForm GetCambios()
