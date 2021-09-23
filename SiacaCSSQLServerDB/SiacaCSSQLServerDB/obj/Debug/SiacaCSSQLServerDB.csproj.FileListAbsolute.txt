@@ -1,0 +1,10 @@
+C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\bin\Debug\SiacaCSSQLServerDB.exe.config
+C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\bin\Debug\SiacaCSSQLServerDB.exe
+C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\bin\Debug\SiacaCSSQLServerDB.pdb
+C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.csprojAssemblyReference.cache
+C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.Form1.resources
+C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.Properties.Resources.resources
+C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.csproj.GenerateResource.cache
+C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.csproj.CoreCompileInputs.cache
+C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.exe
+C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.pdb

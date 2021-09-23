@@ -135,7 +135,7 @@ namespace SiacaCSAccessDatabase
 			return 1;
 		}
 
-		public int DeleteCambioEnAPI(double idAEliminar)///problema
+		public int DeleteCambioEnAPI(double idAEliminar)
 		{
 			try
 			{

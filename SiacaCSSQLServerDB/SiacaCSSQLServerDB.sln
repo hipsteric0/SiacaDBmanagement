@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiacaCSSQLServerDB", "SiacaCSSQLServerDB\SiacaCSSQLServerDB.csproj", "{E293D319-5C10-47DA-8896-817075C37D41}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E293D319-5C10-47DA-8896-817075C37D41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E293D319-5C10-47DA-8896-817075C37D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E293D319-5C10-47DA-8896-817075C37D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E293D319-5C10-47DA-8896-817075C37D41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1239F05-8398-4CAF-B3FF-449B362DB91C}
+	EndGlobalSection
+EndGlobal
