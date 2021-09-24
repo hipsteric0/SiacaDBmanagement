@@ -226,10 +226,14 @@ namespace SiacaCSSQLServerDB
 
 				TopIdForm topIdForm = JsonConvert.DeserializeObject<TopIdForm>(responseString);
 
-				MessageBox.Show("TOP ID: " + topIdForm.topId.ToString());
-
-
-
+				
+				
+				
+				if (topIdForm == null)
+				{
+					return 1;
+				}
+				//MessageBox.Show("TOP ID: " + topIdForm.topId.ToString());
 				return Convert.ToInt32( topIdForm.topId.ToString())+1;
 
 			}
