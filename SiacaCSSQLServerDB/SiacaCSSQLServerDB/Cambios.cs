@@ -129,7 +129,19 @@ namespace SiacaCSSQLServerDB
 				MessageBox.Show("clave producto a enviar: " + clave_producto);
 				con.Close();
 
-				this.EnviarCambioToApi();
+				int x = this.EnviarCambioToApi();
+				MessageBox.Show("0 Se envio a api, -1 error: " + x);
+
+				if (x == -1) // API ESTA CAIDA
+				{
+					// fill log: la api esta caida
+					return 0;
+				}
+				else
+				{
+					// fill log: insecion en api correcta
+					return 1;
+				}
 
 				
 
@@ -139,10 +151,7 @@ namespace SiacaCSSQLServerDB
 			{
 				return 0;
 			}
-			finally
-			{
-
-			}
+			
 			
 			return 0;
 		}
@@ -178,7 +187,58 @@ namespace SiacaCSSQLServerDB
 		}
 		public int EnviarCambioToApi()
 		{
+			try
+			{
+				var client = new WebClient();
+
+				CambioForm cambioForm = new CambioForm();
+				cambioForm.id = this.GetIdTope();
+				cambioForm.cantidad = this.cantidad;
+				cambioForm.existencias = this.existencias;
+				cambioForm.costo_unitario = this.costo_unitario;
+				cambioForm.ultimo_costo = this.ultimo_costo;
+				cambioForm.clave_producto = this.clave_producto;
+				cambioForm.producto = this.producto;
+				cambioForm.localizacion = this.localizacion;
+
+				string data = JsonConvert.SerializeObject(cambioForm);
+				MessageBox.Show("LO QUE SE ENVIA A LA API ES: " + data);
+				client.Headers["Content-Type"] = "application/json";
+				var result = client.UploadString("http://localhost:9645/api/dbmanagement/InsertCambio", data);//quizas aca es download en vez de upload
+
+				//MessageBox.Show("el resultado es:" + result);
+			}
+			catch (Exception e)
+			{
+				return -1; //aca pudiera ser return -1 para saber que hubo un error
+			}
 			return 0;
+			
+		}
+
+		public int GetIdTope()
+		{
+			try
+			{
+				var client = new WebClient();
+				string responseString = client.DownloadString("http://localhost:9645/api/dbmanagement/GetTopCambioID");
+				//HAY QUE REVISAR EL TIMEOUT
+
+				TopIdForm topIdForm = JsonConvert.DeserializeObject<TopIdForm>(responseString);
+
+				MessageBox.Show("TOP ID: " + topIdForm.topId.ToString());
+
+
+
+				return Convert.ToInt32( topIdForm.topId.ToString())+1;
+
+			}
+			catch (Exception e)
+			{
+				return 0; //aca pudiera ser return -1 para saber que hubo un error
+			}
+
+			return 1;
 		}
 
 

@@ -190,6 +190,65 @@ namespace SiacaCSAPI.Controllers
 
 		}
 
+
+		[Route("GetTopCambioID")]
+		[HttpGet]
+		public TopIdForm GetTopCambioID()
+		{
+
+			try
+			{
+				TopIdForm topIdForm = new TopIdForm();
+				SqlConnection con = new SqlConnection();
+				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_API;Integrated Security=True";
+				//int Id = 2;
+
+				var query = "SELECT TOP(1) Id FROM Cambios ORDER BY ID DESC;";
+				String str = "";
+
+				SqlCommand cmd = new SqlCommand(query, con);
+
+				//cmd.Parameters.Add(new SqlParameter("@ID", Convert.ToDouble(id["value"])));
+				DataTable dt = new DataTable();
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				con.Open();
+				//datareader quizas es una mejor forma de sacar valores
+				da.Fill(dt);
+				string newChanges = "";
+
+				foreach (DataRow row in dt.Rows)
+				{
+
+					newChanges = row["Id"].ToString();
+					//String FamilyName = row["Apellido"].ToString();
+					//String ID = row["Cedula"].ToString();
+					//str = Name + " " + FamilyName + " " + ID;
+				}
+
+				// (using) is BS
+				//make sure to check for null values when retrieving the data
+
+
+
+				topIdForm.topId = Convert.ToInt32(newChanges);
+				//MessageBox.Show(str);
+				Console.WriteLine(str);
+				return topIdForm;
+			}
+			catch (Exception e)
+			{
+				return null;
+			}
+			finally
+			{
+
+			}
+
+			//return Ok("no data");
+
+		}
+
+
 		[Route("CambiosNuevos")]
 		[HttpGet]
 		public NewChangesForm NewChanges()

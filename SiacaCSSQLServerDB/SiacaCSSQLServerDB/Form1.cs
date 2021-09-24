@@ -56,11 +56,12 @@ namespace SiacaCSSQLServerDB
 				}
 				else //el cambio no se envio, se volvera a intentar
 				{
-					
+					//sleep de un minuto
 				}
 			}
 
-			
+			//sleep(sleepQuantity)
+			//aca se duerme la cantidad que se determino
 
 		}
 	}
