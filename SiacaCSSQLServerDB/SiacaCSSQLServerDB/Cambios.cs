@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using SiacaCSSQLServerDB.Entities;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -144,6 +147,35 @@ namespace SiacaCSSQLServerDB
 			return 0;
 		}
 
+
+		public int CantidadDeCambiosEnAPI()
+		{
+
+
+			try
+			{
+				var client = new WebClient();
+				string responseString = client.DownloadString("http://localhost:9645/api/dbmanagement/CambiosNuevos");
+				//HAY QUE REVISAR EL TIMEOUT
+
+				NewChangesForm newChangesForm = JsonConvert.DeserializeObject<NewChangesForm>(responseString);
+
+				MessageBox.Show("cantidad de cambios en api: " + newChangesForm.cantidadDeCambios.ToString());
+
+
+
+				return newChangesForm.cantidadDeCambios;
+
+			}
+			catch (Exception e)
+			{
+				return -1; //aca pudiera ser return -1 para saber que hubo un error
+			}
+
+
+
+
+		}
 		public int EnviarCambioToApi()
 		{
 			return 0;

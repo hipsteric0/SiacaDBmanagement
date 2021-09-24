@@ -8,3 +8,6 @@ C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\Siaca
 C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.csproj.CoreCompileInputs.cache
 C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.exe
 C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.pdb
+C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\bin\Debug\Newtonsoft.Json.xml
+C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.csproj.CopyComplete

@@ -30,15 +30,32 @@ namespace SiacaCSAPI.Controllers
 				int Id = 2;
 
 
-				var query = "DELETE FROM Cambios WHERE Id=@id;";
-				SqlCommand cmd = new SqlCommand(query, con);
-				cmd.Parameters.Add(new SqlParameter("@id", Convert.ToDouble(jObject["id"])));
+				var query = "INSERT INTO Cambios VALUES(@id,@tipo_inventario,@id_almacen,@id_productos,@id_proveedor,@cantidad,@costo_unitario,@ultimo_costo,@subtotal,@diferencia,@existencias,@clave_producto,@producto,@localizacion,@fecha,@activo);";
+				SqlCommand cmd2 = new SqlCommand(query, con);
+
+				cmd2.Parameters.Add(new SqlParameter("@id", Convert.ToDouble(jObject["id"])));
+				cmd2.Parameters.Add(new SqlParameter("@tipo_inventario", Convert.ToDouble(jObject["tipo_inventario"])));
+				cmd2.Parameters.Add(new SqlParameter("@id_almacen", Convert.ToDouble(jObject["id_almacen"])));
+				cmd2.Parameters.Add(new SqlParameter("@id_productos", Convert.ToDouble(jObject["id_productos"])));
+				cmd2.Parameters.Add(new SqlParameter("@id_proveedor", Convert.ToDouble(jObject["id_proveedor"])));
+				cmd2.Parameters.Add(new SqlParameter("@cantidad", Convert.ToDouble(jObject["cantidad"])));
+				cmd2.Parameters.Add(new SqlParameter("@costo_unitario", Convert.ToDouble(jObject["costo_unitario"])));
+				cmd2.Parameters.Add(new SqlParameter("@ultimo_costo", Convert.ToDouble(jObject["ultimo_costo"])));
+				cmd2.Parameters.Add(new SqlParameter("@subtotal", Convert.ToDouble(jObject["subtotal"])));
+				cmd2.Parameters.Add(new SqlParameter("@diferencia", Convert.ToDouble(jObject["diferencia"])));
+				cmd2.Parameters.Add(new SqlParameter("@existencias", Convert.ToDouble(jObject["existencias"])));
+				cmd2.Parameters.Add(new SqlParameter("@clave_producto", (jObject["clave_producto"]).ToString()));
+				cmd2.Parameters.Add(new SqlParameter("@producto", (jObject["producto"]).ToString()));
+				cmd2.Parameters.Add(new SqlParameter("@localizacion", (jObject["localizacion"]).ToString()));
+				cmd2.Parameters.Add(new SqlParameter("@fecha", Convert.ToDateTime(jObject["fecha"])));
+				cmd2.Parameters.Add(new SqlParameter("@activo", true));
+
 				con.Open();
-				cmd.ExecuteNonQuery();
+				cmd2.ExecuteNonQuery();
 
 
 				DataTable dt = new DataTable();
-				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				SqlDataAdapter da = new SqlDataAdapter(cmd2);
 
 				//datareader quizas es una mejor forma de sacar valores
 				//Console.WriteLine("EMPRIMIO");
