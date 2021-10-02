@@ -41,6 +41,7 @@ namespace SiacaCSSQLServerDB
 			else if ((newCantidadDeFacturas == -1) || (oldCantidadDeFacturas== -1) )// en este caso no hay conexion a la bd de sqlserver local
 			{
 				//escribir en el LOG que no hay conexion a la BD 
+				logger.BDProfitCaidaLogger();
 				int sleepQuantity = 5; // se debera dormir 5 minutos si no hay conexion
 			}
 			else

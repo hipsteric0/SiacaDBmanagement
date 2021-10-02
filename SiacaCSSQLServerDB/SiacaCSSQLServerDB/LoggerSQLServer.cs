@@ -55,18 +55,55 @@ namespace SiacaCSSQLServerDB
 			}
 		}
 
+
 		public int ApiCaidaLogger(Cambios cambio)
 		{
 			try
 			{
-				string str = "[ " + DateTime.Now.ToString() + " ] " + "Ha fallado la conexión con la API, cuando se intento enviar el producto [ " + cambio.producto + " ] " + "con el codigo [ " + cambio.clave_producto + " ], cantidad: [ " + cambio.cantidad + " ]";
+				StringChecker stringChecker = new StringChecker();
+				cambio.clave_producto = stringChecker.TrimWhiteSpace(cambio.clave_producto);
+				string str = "[ " + DateTime.Now.ToString() + " ] " + "Ha fallado la conexión con la API, cuando se intento enviar el producto [ " + cambio.producto + " ] " + "con el codigo [ " + cambio.clave_producto + " ], cantidad: [ " + cambio.cantidad + " ]. Se intentará enviar el cambio de nuevo en unos minutos.";
 
-				File.AppendAllText(filePath, str);
+
+				List<string> x = File.ReadAllLines(filePath).ToList<string>();
+				x.Insert(0, "");
+				x.Insert(0, str);
+
+				string[] strArray = x.ToArray<string>();
+
+				File.WriteAllLines(filePath, strArray);
 
 				return 1;
 			}
 			catch (Exception e)
 			{
+
+				return 0;
+			}
+		}
+
+		public int BDProfitCaidaLogger()
+		{
+			try
+			{
+				StringChecker stringChecker = new StringChecker();
+				
+				string str = "[ " + DateTime.Now.ToString() + " ] " + "Ha fallado la conexión con la Base de datos de PROFIT. Se intentará enviar el cambio de nuevo en unos minutos. De continuar el fallo favor chequear la Base de datos SIACA_2020 en SQLSERVER";
+
+
+				List<string> x = File.ReadAllLines(filePath).ToList<string>();
+				x.Insert(0, "");
+				x.Insert(0, str);
+
+				string[] strArray = x.ToArray<string>();
+
+				File.WriteAllLines(filePath, strArray);
+
+				return 1;
+			}
+			catch (Exception e)
+			{
+
 				return 0;
 			}
 		}
