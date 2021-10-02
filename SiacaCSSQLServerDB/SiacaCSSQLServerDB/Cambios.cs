@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -107,6 +108,7 @@ namespace SiacaCSSQLServerDB
 				//datareader quizas es una mejor forma de sacar valores
 				da.Fill(dt);
 				string newChanges = "";
+				
 
 				foreach (DataRow row in dt.Rows)
 				{
@@ -135,11 +137,16 @@ namespace SiacaCSSQLServerDB
 				if (x == -1) // API ESTA CAIDA
 				{
 					// fill log: la api esta caida
+					LoggerSQLServer logger = new LoggerSQLServer();
+					logger.ApiCaidaLogger(this);
 					return 0;
 				}
 				else
 				{
 					// fill log: insecion en api correcta
+					LoggerSQLServer logger = new LoggerSQLServer();
+					logger.InsercionCorrectaLogger(this);
+
 					return 1;
 				}
 
@@ -190,6 +197,7 @@ namespace SiacaCSSQLServerDB
 			try
 			{
 				var client = new WebClient();
+				StringChecker stringChecker = new StringChecker();
 
 				CambioForm cambioForm = new CambioForm();
 				cambioForm.id = this.GetIdTope();
@@ -198,18 +206,26 @@ namespace SiacaCSSQLServerDB
 				cambioForm.costo_unitario = this.costo_unitario;
 				cambioForm.ultimo_costo = this.ultimo_costo;
 				cambioForm.clave_producto = this.clave_producto;
-				cambioForm.producto = this.producto;
+				cambioForm.producto = stringChecker.CheckForBans( this.producto);
 				cambioForm.localizacion = this.localizacion;
+				//cambioForm.producto = "ESTOPERA  PEQUENA  MONTA CARGA"; //BORRAR
+
+
+				//ACA HAY QUE HACER UN CHEQUEDO DE Ñs Y CAMBIARLAS POR Ns
+
 
 				string data = JsonConvert.SerializeObject(cambioForm);
 				MessageBox.Show("LO QUE SE ENVIA A LA API ES: " + data);
 				client.Headers["Content-Type"] = "application/json";
+				
+
 				var result = client.UploadString("http://localhost:9645/api/dbmanagement/InsertCambio", data);//quizas aca es download en vez de upload
 
-				//MessageBox.Show("el resultado es:" + result);
+				MessageBox.Show("el resultado upload string es:" + result);
 			}
 			catch (Exception e)
 			{
+				MessageBox.Show("error: " + e);
 				return -1; //aca pudiera ser return -1 para saber que hubo un error
 			}
 			return 0;

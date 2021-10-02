@@ -22,11 +22,13 @@ namespace SiacaCSSQLServerDB
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			
+			LoggerSQLServer logger = new LoggerSQLServer();
+			//textBox1.Text = logger.GetAllFile();
+
 			if (oldCantidadDeFacturas == 0)
 			{
 				oldCantidadDeFacturas = cambios.SelectCantidadDeFacturas();
-				oldCantidadDeFacturas = 655; //BORRAR, SOLO PARA PRUEBAS
+				oldCantidadDeFacturas = 643; //BORRAR, SOLO PARA PRUEBAS error ñs 644, los acentos tambien dan error 649
 			}
 
 			int newCantidadDeFacturas = cambios.SelectCantidadDeFacturas();
@@ -60,8 +62,15 @@ namespace SiacaCSSQLServerDB
 				}
 			}
 
+			textBox1.Text = logger.GetAllFile();
+
 			//sleep(sleepQuantity)
 			//aca se duerme la cantidad que se determino
+
+		}
+
+		private void textBox1_TextChanged(object sender, EventArgs e)
+		{
 
 		}
 	}
