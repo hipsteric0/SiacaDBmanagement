@@ -83,6 +83,7 @@ namespace SiacaCSAccessDatabase
 			}
 			catch (Exception e)
 			{
+				//no hay conexion con la BD de MP
 				Console.WriteLine("Hubo un error SelectExistenceOfProduct: " + e);
 				return 0;
 			}
@@ -248,7 +249,8 @@ namespace SiacaCSAccessDatabase
 			{
 				// hubo un error de conexion
 				//escribir en el log que no pudo realizar la conexion
-				MessageBox.Show("NO HAY CONEXION");
+				LoggerAccessDB logger = new LoggerAccessDB();
+				logger.NoHayConexionAPI();
 				return 0;
 			}
 

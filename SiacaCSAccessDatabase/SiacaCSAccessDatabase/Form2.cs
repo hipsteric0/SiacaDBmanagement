@@ -78,7 +78,7 @@ namespace SiacaCSAccessDatabase
 			// se pregunta a la api si hay cambios nuevos
 			//si no hay, return
 			//else :
-
+			LoggerAccessDB logger = new LoggerAccessDB();
 			InventarioFisico inventarioFisico = new InventarioFisico();
 			CatProducto catProducto = new CatProducto();
 
@@ -100,6 +100,7 @@ namespace SiacaCSAccessDatabase
 
 					inventarioFisico.EditInventarioFisico();
 					catProducto.EditCatProducto();
+					logger.ProductoExistenteLogger(inventarioFisico);
 				}
 				else // si el producto no existe
 				{
@@ -117,11 +118,17 @@ namespace SiacaCSAccessDatabase
 
 					catProducto.AddCatProducto();
 					inventarioFisico.AddInventarioFisico();
-					
 
+					logger.ProductoInexistenteLogger(inventarioFisico);
 				}
-				//fill the log
+				
 			}
+			//fill the log
+			textBox1.Text = logger.GetAllFile();
+		}
+
+		private void textBox1_TextChanged(object sender, EventArgs e)
+		{
 
 		}
 	}
