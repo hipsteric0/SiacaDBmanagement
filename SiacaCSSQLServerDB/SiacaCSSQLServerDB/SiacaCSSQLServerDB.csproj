@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cambios.cs" />
+    <Compile Include="Consumos.cs" />
     <Compile Include="Entities\CambioForm.cs" />
     <Compile Include="Entities\NewChangesForm.cs" />
     <Compile Include="Entities\TopIdForm.cs" />

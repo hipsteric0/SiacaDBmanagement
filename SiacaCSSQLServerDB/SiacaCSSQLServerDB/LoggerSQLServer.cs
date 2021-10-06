@@ -35,7 +35,7 @@ namespace SiacaCSSQLServerDB
 			{
 				StringChecker stringChecker = new StringChecker();
 				cambio.clave_producto = stringChecker.TrimWhiteSpace(cambio.clave_producto);
-				string str = "[ " + DateTime.Now.ToString() + " ] " + "Se ha enviado el cambio a la API correctamente para el producto [ " + cambio.producto + " ] " + "con el codigo [ " + cambio.clave_producto + " ], cantidad: [ " + cambio.cantidad + " ]";
+				string str = "[ " + DateTime.Now.ToString() + " ] " + "Se ha enviado el CAMBIO a la API correctamente para el producto [ " + cambio.producto + " ] " + "con el codigo [ " + cambio.clave_producto + " ], cantidad: [ " + cambio.cantidad + " ]";
 				
 				
 				List<string> x = File.ReadAllLines(filePath).ToList<string>();
@@ -55,6 +55,31 @@ namespace SiacaCSSQLServerDB
 			}
 		}
 
+		public int InsercionConsumoCorrectoLogger(Cambios cambio)
+		{
+			try
+			{
+				StringChecker stringChecker = new StringChecker();
+				cambio.clave_producto = stringChecker.TrimWhiteSpace(cambio.clave_producto);
+				string str = "[ " + DateTime.Now.ToString() + " ] " + "Se ha enviado el CONSUMO a la API correctamente para el producto [ " + cambio.producto + " ] " + "con el codigo [ " + cambio.clave_producto + " ], cantidad: [ " + cambio.cantidad + " ]";
+
+
+				List<string> x = File.ReadAllLines(filePath).ToList<string>();
+				x.Insert(0, "");
+				x.Insert(0, str);
+
+				string[] strArray = x.ToArray<string>();
+
+				File.WriteAllLines(filePath, strArray);
+
+				return 1;
+			}
+			catch (Exception e)
+			{
+
+				return 0;
+			}
+		}
 
 		public int ApiCaidaLogger(Cambios cambio)
 		{

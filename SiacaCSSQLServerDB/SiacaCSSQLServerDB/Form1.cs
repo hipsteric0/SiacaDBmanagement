@@ -14,6 +14,8 @@ namespace SiacaCSSQLServerDB
 	{
 		Cambios cambios = new Cambios();
 		int oldCantidadDeFacturas = 0;//la primera vez que se inicia el programa se debe hacer esto
+		Consumos Oldconsumos = new Consumos();
+		
 
 		public Form1()
 		{
@@ -23,7 +25,8 @@ namespace SiacaCSSQLServerDB
 		private void button1_Click(object sender, EventArgs e)
 		{
 			LoggerSQLServer logger = new LoggerSQLServer();
-			//textBox1.Text = logger.GetAllFile();
+			
+			
 
 			if (oldCantidadDeFacturas == 0)
 			{
@@ -62,6 +65,21 @@ namespace SiacaCSSQLServerDB
 					//sleep de un minuto
 				}
 			}
+
+			textBox1.Text = logger.GetAllFile();
+
+			//ahora se verificara si hay consumos
+
+			Consumos Newconsumos = new Consumos();
+			
+			int resultado =Newconsumos.Compare(Oldconsumos); //intentara buscar consumos, y si los hay, los enviara a la api
+			
+			if (resultado != -1)
+			{
+				Oldconsumos = Newconsumos; // si la api no esta activa no se actualiza la tabla, cuando este activa se actualizara
+			}
+			
+
 
 			textBox1.Text = logger.GetAllFile();
 

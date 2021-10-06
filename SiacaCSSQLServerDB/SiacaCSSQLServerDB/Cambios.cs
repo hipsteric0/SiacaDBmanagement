@@ -17,7 +17,7 @@ namespace SiacaCSSQLServerDB
 	{
 		public double tipoInventario=1;
 		public double id_almacen=1;
-		public double id_productos=1;
+		public double id_productos=-1;
 		public double id_proveedor=1;
 		public double cantidad=0;
 		public double costo_unitario=0;
@@ -128,11 +128,11 @@ namespace SiacaCSSQLServerDB
 				}
 
 
-				MessageBox.Show("clave producto a enviar: " + clave_producto);
+				//MessageBox.Show("clave producto a enviar: " + clave_producto);
 				con.Close();
 
 				int x = this.EnviarCambioToApi();
-				MessageBox.Show("0 Se envio a api, -1 error: " + x);
+				//MessageBox.Show("0 Se envio a api, -1 error: " + x);
 
 				if (x == -1) // API ESTA CAIDA
 				{
@@ -208,6 +208,7 @@ namespace SiacaCSSQLServerDB
 				cambioForm.clave_producto = this.clave_producto;
 				cambioForm.producto = stringChecker.CheckForBans( this.producto);
 				cambioForm.localizacion = this.localizacion;
+				cambioForm.id_productos = this.id_productos;
 				//cambioForm.producto = "ESTOPERA  PEQUENA  MONTA CARGA"; //BORRAR
 
 
@@ -260,6 +261,86 @@ namespace SiacaCSSQLServerDB
 
 			return 1;
 		}
+
+
+		public int BuscarConsumoEnProfit(string codigoArticulo)
+		{
+
+			try
+			{
+
+				SqlConnection con = new SqlConnection();
+				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_2020;Integrated Security=True";
+				//int Id = 2;
+
+				var query = "SELECT  Stock.co_art,Articulo.art_des,Stock.stock,Articulo.campo1  FROM saStockAlmacen AS Stock, saArticulo AS Articulo WHERE (Articulo.co_art=Stock.co_art) AND (Stock.tipo LIKE 'ACT ')AND(Stock.co_art LIKE @codigoArticulo)";
+				String str = "";
+
+				SqlCommand cmd = new SqlCommand(query, con);
+
+				cmd.Parameters.Add(new SqlParameter("@codigoArticulo", codigoArticulo));
+				DataTable dt = new DataTable();
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				con.Open();
+				//datareader quizas es una mejor forma de sacar valores
+				da.Fill(dt);
+				string newChanges = "";
+
+
+				foreach (DataRow row in dt.Rows)
+				{
+
+					this.clave_producto = row["co_art"].ToString();
+					this.producto = row["art_des"].ToString();
+					this.cantidad = Convert.ToDouble(row["stock"].ToString());
+					this.existencias = this.cantidad;
+					//string unidad = (row["co_uni"].ToString());
+					//this.costo_unitario = Convert.ToDouble(row["cost_unit"].ToString());
+					this.localizacion = row["campo1"].ToString();//localizacion
+					this.fecha = DateTime.Today;//fecha
+
+
+
+
+				}
+
+
+				//MessageBox.Show("clave producto a enviar: " + clave_producto);
+				con.Close();
+
+				int x = this.EnviarCambioToApi();
+				//MessageBox.Show("0 Se envio a api, -1 error: " + x);
+
+				if (x == -1) // API ESTA CAIDA
+				{
+					// fill log: la api esta caida
+					LoggerSQLServer logger = new LoggerSQLServer();
+					logger.ApiCaidaLogger(this);
+					return 0;
+				}
+				else
+				{
+					// fill log: insecion en api correcta
+					LoggerSQLServer logger = new LoggerSQLServer();
+					//logger.InsercionCorrectaLogger(this);
+
+					return 1;
+				}
+
+
+
+				return 1;
+			}
+			catch (Exception e)
+			{
+				MessageBox.Show("query corrio mal");
+				return 0;
+			}
+
+
+			return 0;
+		}
+
 
 
 
