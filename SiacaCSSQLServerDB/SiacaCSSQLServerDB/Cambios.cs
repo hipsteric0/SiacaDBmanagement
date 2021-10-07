@@ -30,7 +30,60 @@ namespace SiacaCSSQLServerDB
 		public string localizacion="";
 		public DateTime fecha= DateTime.Today;
 		public bool activo=true;
-		
+
+
+		public int SelectCantidadDeNotasRecepcionCompra()
+		{
+			try
+			{
+
+				SqlConnection con = new SqlConnection();
+				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_2020;Integrated Security=True";
+				//int Id = 2;
+
+				var query = "Select COUNT(*) AS Contador FROM saNotaRecepcionCompraReng;";
+				String str = "";
+
+				SqlCommand cmd = new SqlCommand(query, con);
+
+				//cmd.Parameters.Add(new SqlParameter("@ID", Convert.ToDouble(id["value"])));
+				DataTable dt = new DataTable();
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				con.Open();
+				//datareader quizas es una mejor forma de sacar valores
+				da.Fill(dt);
+				string newChanges = "";
+
+				foreach (DataRow row in dt.Rows)
+				{
+
+					newChanges = row["Contador"].ToString();
+					//String FamilyName = row["Apellido"].ToString();
+					//String ID = row["Cedula"].ToString();
+					//str = Name + " " + FamilyName + " " + ID;
+				}
+
+				// (using) is BS
+				//make sure to check for null values when retrieving the data
+
+
+
+				Convert.ToDouble(newChanges);
+				MessageBox.Show("" + Convert.ToDouble(newChanges));
+
+				con.Close();
+				return Convert.ToInt32(newChanges);
+			}
+			catch (Exception e)
+			{
+				return -1;
+			}
+			finally
+			{
+
+			}
+			return 0;
+		}
 
 		public int SelectCantidadDeFacturas()
 		{
@@ -84,6 +137,86 @@ namespace SiacaCSSQLServerDB
 			}
 			return 0;
 		}
+
+
+		public int BuscarCambioEnProfitNotaCompra(int cantidadCambios)
+		{
+
+			try
+			{
+
+				SqlConnection con = new SqlConnection();
+				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_2020;Integrated Security=True";
+				//int Id = 2;
+
+
+				var query = "SELECT TOP (1) * FROM (SELECT TOP(@cantidadCambios) NotaRecepcion.co_art,Articulo.art_des,Stock.stock,NotaRecepcion.cost_unit,Articulo.campo1,NotaRecepcion.fe_us_in  FROM  saArticulo as Articulo, saStockAlmacen as Stock, saNotaRecepcionCompraReng as NotaRecepcion WHERE (NotaRecepcion.co_art = Articulo.co_art) AND(Articulo.tipo LIKE 'C') AND (Stock.co_art = NotaRecepcion.co_art) AND (Stock.tipo like 'ACT') ORDER BY NotaRecepcion.fe_us_in DESC) as X order by X.fe_us_in ;";
+				String str = "";
+
+				SqlCommand cmd = new SqlCommand(query, con);
+
+				cmd.Parameters.Add(new SqlParameter("@cantidadCambios", cantidadCambios));
+				DataTable dt = new DataTable();
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				con.Open();
+				//datareader quizas es una mejor forma de sacar valores
+				da.Fill(dt);
+				string newChanges = "";
+
+
+				foreach (DataRow row in dt.Rows)
+				{
+
+					this.clave_producto = row["co_art"].ToString();
+					this.producto = row["art_des"].ToString();
+					this.cantidad = Convert.ToDouble(row["stock"].ToString());
+					this.existencias = this.cantidad;
+					//string unidad = (row["co_uni"].ToString());
+					this.costo_unitario = Convert.ToDouble(row["cost_unit"].ToString());
+					this.localizacion = row["campo1"].ToString();//localizacion
+					this.fecha = Convert.ToDateTime(row["fe_us_in"].ToString());//fecha
+
+
+
+
+				}
+
+
+				//MessageBox.Show("clave producto a enviar: " + clave_producto);
+				con.Close();
+
+				int x = this.EnviarCambioToApi();
+				//MessageBox.Show("0 Se envio a api, -1 error: " + x);
+
+				if (x == -1) // API ESTA CAIDA
+				{
+					// fill log: la api esta caida
+					LoggerSQLServer logger = new LoggerSQLServer();
+					logger.ApiCaidaLogger(this);
+					return 0;
+				}
+				else
+				{
+					// fill log: insecion en api correcta
+					LoggerSQLServer logger = new LoggerSQLServer();
+					logger.InsercionCorrectaLogger(this);
+
+					return 1;
+				}
+
+
+
+				return 1;
+			}
+			catch (Exception e)
+			{
+				return 0;
+			}
+
+
+			return 0;
+		}
+
 
 
 		public int BuscarCambioEnProfit(int cantidadCambios)

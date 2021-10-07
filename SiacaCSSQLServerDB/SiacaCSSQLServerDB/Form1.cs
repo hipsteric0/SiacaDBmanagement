@@ -30,11 +30,13 @@ namespace SiacaCSSQLServerDB
 
 			if (oldCantidadDeFacturas == 0)
 			{
-				oldCantidadDeFacturas = cambios.SelectCantidadDeFacturas();
+				//oldCantidadDeFacturas = cambios.SelectCantidadDeFacturas();  // Esto es si el programa funcionara con la cantidad de registros en saFacturaCompra
+				oldCantidadDeFacturas = cambios.SelectCantidadDeNotasRecepcionCompra();    // Esto es si el programa funcionara con la cantidad de registros en saNotaRecepcionCompraReng
 				oldCantidadDeFacturas = 643; //BORRAR, SOLO PARA PRUEBAS error ñs 644, los acentos tambien dan error 649
 			}
 
-			int newCantidadDeFacturas = cambios.SelectCantidadDeFacturas();
+			//int newCantidadDeFacturas = cambios.SelectCantidadDeFacturas();  // Esto es si el programa funcionara con la cantidad de registros en saFacturaCompra			
+			int newCantidadDeFacturas = cambios.SelectCantidadDeNotasRecepcionCompra();    // Esto es si el programa funcionara con la cantidad de registros en saNotaRecepcionCompraReng
 
 			if (oldCantidadDeFacturas== newCantidadDeFacturas)
 			{
@@ -51,7 +53,8 @@ namespace SiacaCSSQLServerDB
 			{
 				//si hay cambios, se deben procesar
 				int cantidadCambios = newCantidadDeFacturas - oldCantidadDeFacturas;
-				int cambioInsertado = cambios.BuscarCambioEnProfit(cantidadCambios);
+				//int cambioInsertado = cambios.BuscarCambioEnProfit(cantidadCambios);// Esto es si el programa funcionara con la cantidad de registros en saFacturaCompra
+				int cambioInsertado = cambios.BuscarCambioEnProfitNotaCompra(cantidadCambios);// Esto es si el programa funcionara con la cantidad de registros en saNotaRecepcionCompraReng
 
 
 				if (cambioInsertado == 1) //si el cambio se inserto, se escribe en el log
