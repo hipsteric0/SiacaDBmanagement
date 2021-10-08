@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jose romero\\Documents\\GitHub\\SiacaDBmanagement\\SiacaCSAPI\\SiacaCSAPI\\SiacaCSAPI.csproj": {}
+    "C:\\Users\\alero\\OneDrive\\Documentos\\GitHub\\SiacaDBmanagement\\SiacaCSAPI\\SiacaCSAPI\\SiacaCSAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jose romero\\Documents\\GitHub\\SiacaDBmanagement\\SiacaCSAPI\\SiacaCSAPI\\SiacaCSAPI.csproj": {
+    "C:\\Users\\alero\\OneDrive\\Documentos\\GitHub\\SiacaDBmanagement\\SiacaCSAPI\\SiacaCSAPI\\SiacaCSAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jose romero\\Documents\\GitHub\\SiacaDBmanagement\\SiacaCSAPI\\SiacaCSAPI\\SiacaCSAPI.csproj",
+        "projectUniqueName": "C:\\Users\\alero\\OneDrive\\Documentos\\GitHub\\SiacaDBmanagement\\SiacaCSAPI\\SiacaCSAPI\\SiacaCSAPI.csproj",
         "projectName": "SiacaCSAPI",
-        "projectPath": "C:\\Users\\jose romero\\Documents\\GitHub\\SiacaDBmanagement\\SiacaCSAPI\\SiacaCSAPI\\SiacaCSAPI.csproj",
-        "packagesPath": "C:\\Users\\jose romero\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jose romero\\Documents\\GitHub\\SiacaDBmanagement\\SiacaCSAPI\\SiacaCSAPI\\obj\\",
+        "projectPath": "C:\\Users\\alero\\OneDrive\\Documentos\\GitHub\\SiacaDBmanagement\\SiacaCSAPI\\SiacaCSAPI\\SiacaCSAPI.csproj",
+        "packagesPath": "C:\\Users\\alero\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alero\\OneDrive\\Documentos\\GitHub\\SiacaDBmanagement\\SiacaCSAPI\\SiacaCSAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jose romero\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alero\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -71,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
