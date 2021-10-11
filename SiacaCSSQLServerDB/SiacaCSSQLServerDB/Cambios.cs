@@ -304,7 +304,7 @@ namespace SiacaCSSQLServerDB
 			try
 			{
 				var client = new WebClient();
-				string responseString = client.DownloadString("http://localhost:9645/api/dbmanagement/CambiosNuevos");
+				string responseString = client.DownloadString("https://siacacsapi2021.azurewebsites.net/api/DBmanagement/CambiosNuevos");
 				//HAY QUE REVISAR EL TIMEOUT
 
 				NewChangesForm newChangesForm = JsonConvert.DeserializeObject<NewChangesForm>(responseString);
@@ -353,7 +353,7 @@ namespace SiacaCSSQLServerDB
 				client.Headers["Content-Type"] = "application/json";
 				
 
-				var result = client.UploadString("http://localhost:9645/api/dbmanagement/InsertCambio", data);//quizas aca es download en vez de upload
+				var result = client.UploadString("https://siacacsapi2021.azurewebsites.net/api/DBmanagement/InsertCambio", data);//quizas aca es download en vez de upload
 
 				MessageBox.Show("el resultado upload string es:" + result);
 			}
@@ -371,7 +371,7 @@ namespace SiacaCSSQLServerDB
 			try
 			{
 				var client = new WebClient();
-				string responseString = client.DownloadString("http://localhost:9645/api/dbmanagement/GetTopCambioID");
+				string responseString = client.DownloadString("https://siacacsapi2021.azurewebsites.net/api/DBmanagement/GetTopCambioID");
 				//HAY QUE REVISAR EL TIMEOUT
 
 				TopIdForm topIdForm = JsonConvert.DeserializeObject<TopIdForm>(responseString);
