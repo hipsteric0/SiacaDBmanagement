@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 using SiacaCSAPI.Entities;
 using System;
@@ -9,13 +10,21 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+//https://siacacsapi2021.azurewebsites.net/api/DBmanagement
+
 namespace SiacaCSAPI.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
 	public class DBManagementController : ControllerBase
 	{
+		private readonly IConfiguration _configuration;
 
+		public DBManagementController(IConfiguration configuration)
+		{
+			_configuration = configuration;
+		}
 
 		[Route("InsertCambio")]
 		[HttpPost]
@@ -24,10 +33,9 @@ namespace SiacaCSAPI.Controllers
 			CambiosForm cambiosForm = new CambiosForm();
 			try
 			{
-				Console.WriteLine("Jobject ID: " + jObject["id"]);
+				string connectionString = _configuration.GetConnectionString("DEPLOYSiacaAPI");
 				SqlConnection con = new SqlConnection();
-				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_API;Integrated Security=True";
-				int Id = 2;
+				con.ConnectionString = connectionString;
 
 
 				var query = "INSERT INTO Cambios VALUES(@id,@tipo_inventario,@id_almacen,@id_productos,@id_proveedor,@cantidad,@costo_unitario,@ultimo_costo,@subtotal,@diferencia,@existencias,@clave_producto,@producto,@localizacion,@fecha,@activo);";
@@ -84,12 +92,11 @@ namespace SiacaCSAPI.Controllers
 			CambiosForm cambiosForm = new CambiosForm();
 			try
 			{
-				Console.WriteLine("Jobject ID: " + jObject["id"]);
+				string connectionString = _configuration.GetConnectionString("DEPLOYSiacaAPI");
 				SqlConnection con = new SqlConnection();
-				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_API;Integrated Security=True";
-				int Id = 2;
-		
-				
+				con.ConnectionString = connectionString;
+
+
 				var query = "DELETE FROM Cambios WHERE Id=@id;";
 				SqlCommand cmd = new SqlCommand(query, con);
 				cmd.Parameters.Add(new SqlParameter("@id", Convert.ToDouble(jObject["id"])));
@@ -126,9 +133,9 @@ namespace SiacaCSAPI.Controllers
 			CambiosForm cambiosForm = new CambiosForm();
 			try
 			{
-				
+				string connectionString = _configuration.GetConnectionString("DEPLOYSiacaAPI");
 				SqlConnection con = new SqlConnection();
-				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_API;Integrated Security=True";
+				con.ConnectionString = connectionString;
 				int Id = 2;
 
 				var query = "SELECT TOP (1) * FROM Cambios ORDER BY Id ASC;";
@@ -199,9 +206,9 @@ namespace SiacaCSAPI.Controllers
 			try
 			{
 				TopIdForm topIdForm = new TopIdForm();
+				string connectionString = _configuration.GetConnectionString("DEPLOYSiacaAPI");
 				SqlConnection con = new SqlConnection();
-				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_API;Integrated Security=True";
-				//int Id = 2;
+				con.ConnectionString = connectionString;
 
 				var query = "SELECT TOP(1) Id FROM Cambios ORDER BY ID DESC;";
 				String str = "";
@@ -257,9 +264,9 @@ namespace SiacaCSAPI.Controllers
 			try
 			{
 				NewChangesForm newChangesForm = new NewChangesForm();
+				string connectionString = _configuration.GetConnectionString("DEPLOYSiacaAPI");
 				SqlConnection con = new SqlConnection();
-				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_API;Integrated Security=True";
-				//int Id = 2;
+				con.ConnectionString = connectionString;
 
 				var query = "SELECT COUNT (id) AS Contador FROM Cambios;";
 				String str = "";
