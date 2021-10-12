@@ -88,7 +88,7 @@ namespace SiacaCSAccessDatabase
 			{
 				
 				double ExistenceOfProduct = inventarioFisico.SelectExistenceOfProduct();
-				MessageBox.Show("ID OF PROD: " + ExistenceOfProduct);
+				//MessageBox.Show("ID OF PROD: " + ExistenceOfProduct);
 
 
 				if (ExistenceOfProduct != 0)//si el producto existe

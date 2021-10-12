@@ -71,8 +71,8 @@ namespace SiacaCSAccessDatabase
 				conn = new OleDbConnection(
 					"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\jose romero\\Desktop\\MP\\INV_13-11-19.i01;Persist Security Info=True;Jet OLEDB:Database Password=*");
 				conn.Open();
-				MessageBox.Show("EXISTENCIAS: " + this.existencias);
-				MessageBox.Show("clave: " + this.clave_producto);
+				//MessageBox.Show("EXISTENCIAS: " + this.existencias);
+				//MessageBox.Show("clave: " + this.clave_producto);
 				OleDbCommand cmd =
 					new OleDbCommand("UPDATE Catproductos SET EXISTENCIAS=@existencias WHERE CLAVE_PRODUCTO=@id_prod;  ", conn); //UPDATE un inventario fisico
 				
@@ -80,7 +80,7 @@ namespace SiacaCSAccessDatabase
 				cmd.Parameters.AddWithValue("@id_prod", this.clave_producto);
 
 
-				//MessageBox.Show("cantidad " + this.cantidad + " idprod " + this.id_productos + " existencias " + this.existencias);
+				////MessageBox.Show("cantidad " + this.cantidad + " idprod " + this.id_productos + " existencias " + this.existencias);
 
 				var recordupdated = cmd.ExecuteNonQuery();
 

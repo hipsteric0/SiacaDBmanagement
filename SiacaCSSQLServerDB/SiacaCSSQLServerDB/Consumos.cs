@@ -52,7 +52,7 @@ namespace SiacaCSSQLServerDB
 				// (using) is BS
 				//make sure to check for null values when retrieving the data
 
-				//MessageBox.Show("co_art: " + listaCo_art[cont] + " Tipo: " + listaTipo[cont] + " stock: " + listaStock[cont]);
+				////MessageBox.Show("co_art: " + listaCo_art[cont] + " Tipo: " + listaTipo[cont] + " stock: " + listaStock[cont]);
 
 
 				
@@ -72,7 +72,7 @@ namespace SiacaCSSQLServerDB
 
 		public int Compare(Consumos oldConsumos)
 		{
-			MessageBox.Show("edita un valor");
+			//MessageBox.Show("edita un valor");
 			int result = 0;
 			int diferencia = (this.listaCo_art.Count-oldConsumos.listaCo_art.Count);
 			int j = 0;
@@ -81,11 +81,11 @@ namespace SiacaCSSQLServerDB
 			
 			while ( i<oldConsumos.listaCo_art.Count)
 			{
-				//MessageBox.Show("j: " + j + "i: " + i);
+				////MessageBox.Show("j: " + j + "i: " + i);
 				if (this.listaCo_art[j] == oldConsumos.listaCo_art[i])
 				{
 
-					//MessageBox.Show("OLD: " + oldConsumos.listaCo_art[i] + " "+oldConsumos.listaTipo[i] +" "+ oldConsumos.listaStock[i]+" "+
+					////MessageBox.Show("OLD: " + oldConsumos.listaCo_art[i] + " "+oldConsumos.listaTipo[i] +" "+ oldConsumos.listaStock[i]+" "+
 					//				"NEW: " + this.listaCo_art[j] + " " + this.listaTipo[j] + " " + this.listaStock[j] + " ");
 
 					if ((this.listaTipo[j] == oldConsumos.listaTipo[i])&&(oldConsumos.listaTipo[i].Trim() == "ACT"))
@@ -96,7 +96,7 @@ namespace SiacaCSSQLServerDB
 							//si es igual no hubieron cambios ni registros de facturas
 							i++;
 							j++;
-							//MessageBox.Show("entro por 1"); 
+							////MessageBox.Show("entro por 1"); 
 
 
 						}
@@ -115,14 +115,14 @@ namespace SiacaCSSQLServerDB
 
 							if (result == 1)
 							{
-								MessageBox.Show("corrio bien");
+								//MessageBox.Show("corrio bien");
 								LoggerSQLServer logger = new LoggerSQLServer();
 								logger.InsercionConsumoCorrectoLogger(cambios);
 								//insercion correcta
 							}
 							else
 							{
-								MessageBox.Show("corrio mal");
+								//MessageBox.Show("corrio mal");
 								LoggerSQLServer logger = new LoggerSQLServer();
 								//logger.ApiCaidaLogger(cambios);
 								return -1;
@@ -131,7 +131,7 @@ namespace SiacaCSSQLServerDB
 
 							i++;
 							j++;
-							//MessageBox.Show("entro por 2");
+							////MessageBox.Show("entro por 2");
 							
 						}
 
@@ -141,7 +141,7 @@ namespace SiacaCSSQLServerDB
 						//ambos son tipo LLE, se ignora
 						i++;
 						j++;
-						//MessageBox.Show("entro por 3");
+						////MessageBox.Show("entro por 3");
 					}
 					else
 					{
@@ -160,14 +160,14 @@ namespace SiacaCSSQLServerDB
 
 							if (result == 1)
 							{
-								MessageBox.Show("corrio bien");
+								//MessageBox.Show("corrio bien");
 								LoggerSQLServer logger = new LoggerSQLServer();
 								logger.InsercionConsumoCorrectoLogger(cambios);
 								//insercion correcta
 							}
 							else
 							{
-								MessageBox.Show("corrio mal");
+								//MessageBox.Show("corrio mal");
 								LoggerSQLServer logger = new LoggerSQLServer();
 								//logger.ApiCaidaLogger(cambios);
 								return -1;
@@ -175,7 +175,7 @@ namespace SiacaCSSQLServerDB
 							}
 
 							j++;
-							MessageBox.Show("entro por 4");
+							//MessageBox.Show("entro por 4");
 						}
 						else if (this.listaStock[j] != 0)
 						{
@@ -184,7 +184,7 @@ namespace SiacaCSSQLServerDB
 							//se desfasa new para que old lo alcance
 							
 							j++;
-							MessageBox.Show("entro por 5");
+							//MessageBox.Show("entro por 5");
 						}
 					}
 				}
@@ -204,14 +204,14 @@ namespace SiacaCSSQLServerDB
 
 						if (result == 1)
 						{
-							MessageBox.Show("corrio bien");
+							//MessageBox.Show("corrio bien");
 							LoggerSQLServer logger = new LoggerSQLServer();
 							logger.InsercionConsumoCorrectoLogger(cambios);
 							//insercion correcta
 						}
 						else
 						{
-							MessageBox.Show("corrio mal");
+							//MessageBox.Show("corrio mal");
 							LoggerSQLServer logger = new LoggerSQLServer();
 							//logger.ApiCaidaLogger(cambios);
 							return -1;
@@ -219,7 +219,7 @@ namespace SiacaCSSQLServerDB
 						}
 
 						j++;
-						MessageBox.Show("entro por 6");
+						//MessageBox.Show("entro por 6");
 					}
 					else
 					{
@@ -227,7 +227,7 @@ namespace SiacaCSSQLServerDB
 						//no se envia nada a la api
 						//se desfasa new
 						j++;
-						MessageBox.Show("entro por 7");
+						//MessageBox.Show("entro por 7");
 					}
 				}
 				

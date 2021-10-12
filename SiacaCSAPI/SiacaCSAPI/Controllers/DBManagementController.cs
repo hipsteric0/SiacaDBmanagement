@@ -238,7 +238,7 @@ namespace SiacaCSAPI.Controllers
 
 
 				topIdForm.topId = Convert.ToInt32(newChanges);
-				//MessageBox.Show(str);
+				////MessageBox.Show(str);
 				Console.WriteLine(str);
 				return topIdForm;
 			}
@@ -296,7 +296,7 @@ namespace SiacaCSAPI.Controllers
 
 
 				newChangesForm.cantidadDeCambios = Convert.ToInt32(newChanges);
-				//MessageBox.Show(str);
+				////MessageBox.Show(str);
 				Console.WriteLine(str);
 				return newChangesForm;
 			}

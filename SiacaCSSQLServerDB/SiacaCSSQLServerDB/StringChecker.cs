@@ -43,13 +43,13 @@ namespace SiacaCSSQLServerDB
 
 		public string CheckForBans(string str)
 		{
-			MessageBox.Show("string entrante: " +str);
+			//MessageBox.Show("string entrante: " +str);
 			for(int i = 0; i < this.listaCaracteresAReemplazar.Count(); i++)
 			{
 				string result = str.Replace(this.listaCaracteresBaneados[i], this.listaCaracteresAReemplazar[i]);
 				str = result;
 			}
-			MessageBox.Show("string saliente: " + str);
+			//MessageBox.Show("string saliente: " + str);
 			return str;
 		}
 

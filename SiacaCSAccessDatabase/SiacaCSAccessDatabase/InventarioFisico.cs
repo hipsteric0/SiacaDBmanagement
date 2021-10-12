@@ -63,7 +63,7 @@ namespace SiacaCSAccessDatabase
 				OleDbCommand cmd =
 					new OleDbCommand("SELECT CatProductos.ID_PRODUCTOS FROM CatProductos WHERE(((CatProductos.CLAVE_PRODUCTO) = @param)); ", conn);   ///insert un nievo inventarioFisico
 				cmd.Parameters.AddWithValue("@param",this.clave_producto);
-				//MessageBox.Show("QUERY: " + this.clave_producto);
+				////MessageBox.Show("QUERY: " + this.clave_producto);
 				reader = cmd.ExecuteReader();
 				
 
@@ -108,7 +108,7 @@ namespace SiacaCSAccessDatabase
 				conn = new OleDbConnection(
 					"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\jose romero\\Desktop\\MP\\INV_13-11-19.i01;Persist Security Info=True;Jet OLEDB:Database Password=*");
 				conn.Open();
-				MessageBox.Show("ID tope:" +this.id_productos);
+				//MessageBox.Show("ID tope:" +this.id_productos);
 				OleDbCommand cmd =
 					new OleDbCommand("INSERT INTO InventarioFisico (TIPOINVENTARIO,ID_PRODUCTOS,CANTIDAD,COSTO_UNITARIO,ULTIMO_COSTO,SUB_TOTAL,DIFERENCIA,EXISTENCIAS) VALUES (@tipoInventario,@id_productos,@cantidad,@costo_unitario,@ultimo_costo,@subtotal,@diferencia,@existencias);", conn);   ///insert un nievo inventarioFisico
 					//new OleDbCommand("INSERT INTO InventarioFisico (TIPOINVENTARIO,ID_PRODUCTOS,CANTIDAD,COSTO_UNITARIO,ULTIMO_COSTO,SUB_TOTAL,DIFERENCIA,EXISTENCIAS) VALUES (2,@id_productos,1,1,1,1,1,1);", conn);   ///insert un nievo inventarioFisico
@@ -148,11 +148,11 @@ namespace SiacaCSAccessDatabase
 				DeleteCambioForm deleteCambioForm = new DeleteCambioForm();
 				deleteCambioForm.id = Convert.ToInt64(idAEliminar);
 				string data = JsonConvert.SerializeObject(deleteCambioForm);
-				MessageBox.Show("LO QUE SE ENVIA A LA API ES: "+ data);
+				//MessageBox.Show("LO QUE SE ENVIA A LA API ES: "+ data);
 				client.Headers["Content-Type"] = "application/json";
 				var result = client.UploadString("https://siacacsapi2021.azurewebsites.net/api/DBmanagement/DeleteCambio", data);//quizas aca es download en vez de upload
 
-				//MessageBox.Show("el resultado es:" + result);
+				////MessageBox.Show("el resultado es:" + result);
 			}
 			catch (Exception e)
 			{
@@ -172,7 +172,7 @@ namespace SiacaCSAccessDatabase
 				
 				NewChangesForm newChangesForm = JsonConvert.DeserializeObject<NewChangesForm>(responseString);
 
-				MessageBox.Show("cantidad de cambios en api: "+ newChangesForm.cantidadDeCambios.ToString());
+				//MessageBox.Show("cantidad de cambios en api: "+ newChangesForm.cantidadDeCambios.ToString());
 
 			
 
@@ -222,7 +222,7 @@ namespace SiacaCSAccessDatabase
 				//BORRAR DE LA BD DE LA API EL CAMBIO REALIZADO
 				int y = DeleteCambioEnAPI(cambiosForm.id);
 
-				MessageBox.Show("return delete: " + y);
+				//MessageBox.Show("return delete: " + y);
 				return cambiosForm.id;
 
 			}
@@ -244,7 +244,7 @@ namespace SiacaCSAccessDatabase
 			if (conToAPI == 0)
 			{
 				//no existen cambios nuevos
-				MessageBox.Show("NO HAY CAMBIOS NUEVOS");
+				//MessageBox.Show("NO HAY CAMBIOS NUEVOS");
 				return 0;
 			}
 
@@ -304,10 +304,10 @@ namespace SiacaCSAccessDatabase
 				cmd.Parameters.AddWithValue("@id_prod",this.id_productos);
 				
 
-				//MessageBox.Show("cantidad " + this.cantidad + " idprod " + this.id_productos + " existencias " + this.existencias);
+				////MessageBox.Show("cantidad " + this.cantidad + " idprod " + this.id_productos + " existencias " + this.existencias);
 
 				var recordupdated = cmd.ExecuteNonQuery();
-				//MessageBox.Show(""+ recordupdated);
+				////MessageBox.Show(""+ recordupdated);
 
 			}
 			catch (Exception e)
@@ -343,7 +343,7 @@ namespace SiacaCSAccessDatabase
 			if (reader.Read()) //se ejecuta si el query encuentra algo 
 			{
 				double x = Convert.ToDouble(reader["ID_PRODUCTOS"].ToString()) +1;
-					//MessageBox.Show("" + x);
+					////MessageBox.Show("" + x);
 				if (reader != null) reader.Close();
 				if (conn != null) conn.Close();
 				return x;

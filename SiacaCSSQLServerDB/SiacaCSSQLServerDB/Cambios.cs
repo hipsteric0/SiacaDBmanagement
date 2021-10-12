@@ -69,7 +69,7 @@ namespace SiacaCSSQLServerDB
 
 
 				Convert.ToDouble(newChanges);
-				MessageBox.Show("" + Convert.ToDouble(newChanges));
+				//MessageBox.Show("" + Convert.ToDouble(newChanges));
 
 				con.Close();
 				return Convert.ToInt32(newChanges);
@@ -122,7 +122,7 @@ namespace SiacaCSSQLServerDB
 
 
 				Convert.ToDouble(newChanges);
-				MessageBox.Show(""+Convert.ToDouble(newChanges));
+				//MessageBox.Show(""+Convert.ToDouble(newChanges));
 				
 				con.Close();
 				return Convert.ToInt32(newChanges);
@@ -182,11 +182,11 @@ namespace SiacaCSSQLServerDB
 				}
 
 
-				//MessageBox.Show("clave producto a enviar: " + clave_producto);
+				////MessageBox.Show("clave producto a enviar: " + clave_producto);
 				con.Close();
 
 				int x = this.EnviarCambioToApi();
-				//MessageBox.Show("0 Se envio a api, -1 error: " + x);
+				////MessageBox.Show("0 Se envio a api, -1 error: " + x);
 
 				if (x == -1) // API ESTA CAIDA
 				{
@@ -261,11 +261,11 @@ namespace SiacaCSSQLServerDB
 				}
 
 
-				//MessageBox.Show("clave producto a enviar: " + clave_producto);
+				////MessageBox.Show("clave producto a enviar: " + clave_producto);
 				con.Close();
 
 				int x = this.EnviarCambioToApi();
-				//MessageBox.Show("0 Se envio a api, -1 error: " + x);
+				////MessageBox.Show("0 Se envio a api, -1 error: " + x);
 
 				if (x == -1) // API ESTA CAIDA
 				{
@@ -309,7 +309,7 @@ namespace SiacaCSSQLServerDB
 
 				NewChangesForm newChangesForm = JsonConvert.DeserializeObject<NewChangesForm>(responseString);
 
-				MessageBox.Show("cantidad de cambios en api: " + newChangesForm.cantidadDeCambios.ToString());
+				//MessageBox.Show("cantidad de cambios en api: " + newChangesForm.cantidadDeCambios.ToString());
 
 
 
@@ -349,17 +349,17 @@ namespace SiacaCSSQLServerDB
 
 
 				string data = JsonConvert.SerializeObject(cambioForm);
-				MessageBox.Show("LO QUE SE ENVIA A LA API ES: " + data);
+				//MessageBox.Show("LO QUE SE ENVIA A LA API ES: " + data);
 				client.Headers["Content-Type"] = "application/json";
 				
 
 				var result = client.UploadString("https://siacacsapi2021.azurewebsites.net/api/DBmanagement/InsertCambio", data);//quizas aca es download en vez de upload
 
-				MessageBox.Show("el resultado upload string es:" + result);
+				//MessageBox.Show("el resultado upload string es:" + result);
 			}
 			catch (Exception e)
 			{
-				MessageBox.Show("error: " + e);
+				//MessageBox.Show("error: " + e);
 				return -1; //aca pudiera ser return -1 para saber que hubo un error
 			}
 			return 0;
@@ -383,7 +383,7 @@ namespace SiacaCSSQLServerDB
 				{
 					return 1;
 				}
-				//MessageBox.Show("TOP ID: " + topIdForm.topId.ToString());
+				////MessageBox.Show("TOP ID: " + topIdForm.topId.ToString());
 				return Convert.ToInt32( topIdForm.topId.ToString())+1;
 
 			}
@@ -438,11 +438,11 @@ namespace SiacaCSSQLServerDB
 				}
 
 
-				//MessageBox.Show("clave producto a enviar: " + clave_producto);
+				////MessageBox.Show("clave producto a enviar: " + clave_producto);
 				con.Close();
 
 				int x = this.EnviarCambioToApi();
-				//MessageBox.Show("0 Se envio a api, -1 error: " + x);
+				////MessageBox.Show("0 Se envio a api, -1 error: " + x);
 
 				if (x == -1) // API ESTA CAIDA
 				{
@@ -466,7 +466,7 @@ namespace SiacaCSSQLServerDB
 			}
 			catch (Exception e)
 			{
-				MessageBox.Show("query corrio mal");
+				//MessageBox.Show("query corrio mal");
 				return 0;
 			}
 
