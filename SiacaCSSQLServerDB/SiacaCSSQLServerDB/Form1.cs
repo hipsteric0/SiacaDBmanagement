@@ -21,6 +21,7 @@ namespace SiacaCSSQLServerDB
 		public Form1()
 		{
 			InitializeComponent();
+			this.button1_Click(null, null);
 		}
 
 		private async void button1_Click(object sender, EventArgs e)

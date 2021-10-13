@@ -63,7 +63,7 @@ namespace SiacaCSAccessDatabase
 			// button2
 			// 
 			this.button2.Location = new System.Drawing.Point(21, 19);
-			this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.button2.Margin = new System.Windows.Forms.Padding(2);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(56, 19);
 			this.button2.TabIndex = 3;
@@ -76,6 +76,7 @@ namespace SiacaCSAccessDatabase
 			this.textBox1.Location = new System.Drawing.Point(21, 43);
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";
+			this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
 			this.textBox1.Size = new System.Drawing.Size(557, 311);
 			this.textBox1.TabIndex = 4;
 			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -87,7 +88,7 @@ namespace SiacaCSAccessDatabase
 			this.ClientSize = new System.Drawing.Size(600, 366);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.button2);
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "Form2";
 			this.Text = "Form2";
 			this.Load += new System.EventHandler(this.Form2_Load);

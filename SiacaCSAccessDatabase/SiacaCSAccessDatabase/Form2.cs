@@ -25,6 +25,7 @@ namespace SiacaCSAccessDatabase
 		public Form2()
 		{
 			InitializeComponent();
+			this.button2_Click(null, null);
 		}
 
 		private void Form2_Load(object sender, EventArgs e)
@@ -32,7 +33,7 @@ namespace SiacaCSAccessDatabase
 			// TODO: This line of code loads data into the '_INV_13_11_19DataSet1.InventarioFisico' table. You can move, or remove it, as needed.
 			this.inventarioFisicoTableAdapter.Fill(this._INV_13_11_19DataSet1.InventarioFisico);
 			inventarioFisicoBindingSource.DataSource = this._INV_13_11_19DataSet1.InventarioFisico;
-
+			
 		}
 
 		
@@ -72,59 +73,66 @@ namespace SiacaCSAccessDatabase
 
 		}
 
-		private void button2_Click(object sender, EventArgs e)
+		private async void button2_Click(object sender, EventArgs e)
 		{
 
-			// se pregunta a la api si hay cambios nuevos
-			//si no hay, return
-			//else :
+			
 			LoggerAccessDB logger = new LoggerAccessDB();
-			InventarioFisico inventarioFisico = new InventarioFisico();
-			CatProducto catProducto = new CatProducto();
 
-			int newChanges =  inventarioFisico.GetInventarioFisicoFromSQLServer();
-
-			if (newChanges == 1) //edita o anade solo cuando la api le informa que hubieron cambios
+			while (true)
 			{
-				
-				double ExistenceOfProduct = inventarioFisico.SelectExistenceOfProduct();
-				//MessageBox.Show("ID OF PROD: " + ExistenceOfProduct);
+				InventarioFisico inventarioFisico = new InventarioFisico();
+				CatProducto catProducto = new CatProducto();
 
+				int newChanges = inventarioFisico.GetInventarioFisicoFromSQLServer();
 
-				if (ExistenceOfProduct != 0)//si el producto existe
-				{
-					//en este caso se debe editar inventarioFisico y catProductos, solo los atributos de existencias
-					catProducto.clave_producto = inventarioFisico.clave_producto;
-					catProducto.existencias = inventarioFisico.cantidad;
-					catProducto.id_productos = ExistenceOfProduct;
-
-					inventarioFisico.EditInventarioFisico();
-					catProducto.EditCatProducto();
-					logger.ProductoExistenteLogger(inventarioFisico);
-				}
-				else // si el producto no existe
+				if (newChanges == 1) //edita o anade solo cuando la api le informa que hubieron cambios
 				{
 
-					//en este caso se debe insertar un inventarioFisico y un catProductos
-					double topInventarioFisico = inventarioFisico.GetTopIdInventarioFisico();
-					inventarioFisico.id_productos = topInventarioFisico;
-					catProducto.id_productos = topInventarioFisico;
-					catProducto.clave_producto = inventarioFisico.clave_producto;
-					catProducto.existencias = inventarioFisico.cantidad;
-					catProducto.producto = inventarioFisico.producto;
-					catProducto.localizacion = inventarioFisico.localizacion;
-					catProducto.fecha = inventarioFisico.fecha;
-					catProducto.activo = inventarioFisico.activo;
+					double ExistenceOfProduct = inventarioFisico.SelectExistenceOfProduct();
+					//MessageBox.Show("ID OF PROD: " + ExistenceOfProduct);
 
-					catProducto.AddCatProducto();
-					inventarioFisico.AddInventarioFisico();
 
-					logger.ProductoInexistenteLogger(inventarioFisico);
+					if (ExistenceOfProduct != 0)//si el producto existe
+					{
+						//en este caso se debe editar inventarioFisico y catProductos, solo los atributos de existencias
+						catProducto.clave_producto = inventarioFisico.clave_producto;
+						catProducto.existencias = inventarioFisico.cantidad;
+						catProducto.id_productos = ExistenceOfProduct;
+
+						inventarioFisico.EditInventarioFisico();
+						catProducto.EditCatProducto();
+						logger.ProductoExistenteLogger(inventarioFisico);
+					}
+					else // si el producto no existe
+					{
+
+						//en este caso se debe insertar un inventarioFisico y un catProductos
+						double topInventarioFisico = inventarioFisico.GetTopIdInventarioFisico();
+						inventarioFisico.id_productos = topInventarioFisico;
+						catProducto.id_productos = topInventarioFisico;
+						catProducto.clave_producto = inventarioFisico.clave_producto;
+						catProducto.existencias = inventarioFisico.cantidad;
+						catProducto.producto = inventarioFisico.producto;
+						catProducto.localizacion = inventarioFisico.localizacion;
+						catProducto.fecha = inventarioFisico.fecha;
+						catProducto.activo = inventarioFisico.activo;
+
+						catProducto.AddCatProducto();
+						inventarioFisico.AddInventarioFisico();
+
+						logger.ProductoInexistenteLogger(inventarioFisico);
+					}
+
 				}
-				
+				//fill the log
+				textBox1.Text = logger.GetAllFile();
+
+				//sleep
+				await Task.Delay(300000); //tiempo en milisegundos
 			}
-			//fill the log
-			textBox1.Text = logger.GetAllFile();
+
+			
 		}
 
 		private void textBox1_TextChanged(object sender, EventArgs e)
