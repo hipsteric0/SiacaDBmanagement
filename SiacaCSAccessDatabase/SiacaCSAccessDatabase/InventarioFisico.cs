@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 /// <summary>
+/// current API:
 /// https://siacacsapi2021.azurewebsites.net/api/DBmanagement
 /// </summary>
 
@@ -80,6 +81,8 @@ namespace SiacaCSAccessDatabase
 				}
 				else
 				{
+					if (reader != null) reader.Close();
+					if (conn != null) conn.Close();
 					return 0;
 				}
 
@@ -87,6 +90,8 @@ namespace SiacaCSAccessDatabase
 			catch (Exception e)
 			{
 				//no hay conexion con la BD de MP
+				if (reader != null) reader.Close();
+				if (conn != null) conn.Close();
 				Console.WriteLine("Hubo un error SelectExistenceOfProduct: " + e);
 				return 0;
 			}
@@ -128,6 +133,8 @@ namespace SiacaCSAccessDatabase
 			}
 			catch (Exception e)
 			{
+				if (reader != null) reader.Close();
+				if (conn != null) conn.Close();
 				return 0;
 			}
 
@@ -151,7 +158,7 @@ namespace SiacaCSAccessDatabase
 				//MessageBox.Show("LO QUE SE ENVIA A LA API ES: "+ data);
 				client.Headers["Content-Type"] = "application/json";
 				var result = client.UploadString("https://siacacsapi2021.azurewebsites.net/api/DBmanagement/DeleteCambio", data);//quizas aca es download en vez de upload
-
+				client.Dispose();
 				////MessageBox.Show("el resultado es:" + result);
 			}
 			catch (Exception e)
@@ -174,8 +181,8 @@ namespace SiacaCSAccessDatabase
 
 				//MessageBox.Show("cantidad de cambios en api: "+ newChangesForm.cantidadDeCambios.ToString());
 
-			
 
+				client.Dispose();
 				return newChangesForm.cantidadDeCambios;
 
 			}
@@ -223,6 +230,7 @@ namespace SiacaCSAccessDatabase
 				int y = DeleteCambioEnAPI(cambiosForm.id);
 
 				//MessageBox.Show("return delete: " + y);
+				client.Dispose();
 				return cambiosForm.id;
 
 			}
@@ -262,9 +270,6 @@ namespace SiacaCSAccessDatabase
 
 			Double ApiIdToDelete =  GetCambioFromAPI();
 
-
-			//manejar el json de la api
-			//asignar el json de a api a this
 
 			//PLACEHOLDER:
 			/*this.tipoInventario = 1;
@@ -308,17 +313,20 @@ namespace SiacaCSAccessDatabase
 
 				var recordupdated = cmd.ExecuteNonQuery();
 				////MessageBox.Show(""+ recordupdated);
+				if (reader != null) reader.Close();
+				if (conn != null) conn.Close();
 
 			}
 			catch (Exception e)
 			{
+				if (reader != null) reader.Close();
+				if (conn != null) conn.Close();
 				return 0;
 			}
 
 			finally
 			{
-				if (reader != null) reader.Close();
-				if (conn != null) conn.Close();
+				
 			}
 			return 1;
 		}
@@ -351,20 +359,23 @@ namespace SiacaCSAccessDatabase
 			}
 			else
 			{
-				return 0;
+					if (reader != null) reader.Close();
+					if (conn != null) conn.Close();
+					return 0;
 			}
 
 			}
 			catch (Exception e)
 			{
 					Console.WriteLine("Hubo un error GetTopIdInventarioFisico: " + e);
-					return 0;
+				if (reader != null) reader.Close();
+				if (conn != null) conn.Close();
+				return 0;
 			}
 
 			finally
 			{
-					if (reader != null) reader.Close();
-					if (conn != null) conn.Close();
+					
 			}
 
 			

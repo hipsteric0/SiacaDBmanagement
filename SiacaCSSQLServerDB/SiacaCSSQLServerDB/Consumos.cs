@@ -54,7 +54,7 @@ namespace SiacaCSSQLServerDB
 
 				////MessageBox.Show("co_art: " + listaCo_art[cont] + " Tipo: " + listaTipo[cont] + " stock: " + listaStock[cont]);
 
-
+				con.Close();
 				
 				
 			}
@@ -65,7 +65,7 @@ namespace SiacaCSSQLServerDB
 			}
 			finally
 			{
-
+				
 			}
 			
 		}

@@ -70,7 +70,7 @@ namespace SiacaCSSQLServerDB
 			this.textBox3.Name = "textBox3";
 			this.textBox3.Size = new System.Drawing.Size(750, 13);
 			this.textBox3.TabIndex = 3;
-			this.textBox3.Text = "Ubicación: C:\\Users\\jose romero\\Desktop\\log\\LOGpROFIT.txt";
+			this.textBox3.Text = "Ubicación: C:\\Users\\jose romero\\Desktop\\log\\LOGProfit.txt";
 			this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// textBox4

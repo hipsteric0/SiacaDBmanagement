@@ -312,7 +312,7 @@ namespace SiacaCSSQLServerDB
 				//MessageBox.Show("cantidad de cambios en api: " + newChangesForm.cantidadDeCambios.ToString());
 
 
-
+				client.Dispose();
 				return newChangesForm.cantidadDeCambios;
 
 			}
@@ -354,7 +354,7 @@ namespace SiacaCSSQLServerDB
 				
 
 				var result = client.UploadString("https://siacacsapi2021.azurewebsites.net/api/DBmanagement/InsertCambio", data);//quizas aca es download en vez de upload
-
+				client.Dispose();
 				//MessageBox.Show("el resultado upload string es:" + result);
 			}
 			catch (Exception e)
@@ -381,9 +381,11 @@ namespace SiacaCSSQLServerDB
 				
 				if (topIdForm == null)
 				{
+					client.Dispose();
 					return 1;
 				}
 				////MessageBox.Show("TOP ID: " + topIdForm.topId.ToString());
+				///client.Dispose();
 				return Convert.ToInt32( topIdForm.topId.ToString())+1;
 
 			}

@@ -90,7 +90,8 @@ namespace SiacaCSAccessDatabase
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Hubo un error SelectExistenceOfProduct: " + e);
+				if (reader != null) reader.Close();
+				if (conn != null) conn.Close();
 				return 0;
 			}
 
@@ -134,6 +135,8 @@ namespace SiacaCSAccessDatabase
 			}
 			catch (Exception e)
 			{
+				if (reader != null) reader.Close();
+				if (conn != null) conn.Close();
 				return 0;
 			}
 

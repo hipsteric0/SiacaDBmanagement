@@ -73,13 +73,13 @@ namespace SiacaCSAccessDatabase
 
 		}
 
-		private async void button2_Click(object sender, EventArgs e)
+		private async void button2_Click(object sender, EventArgs e)  //aca ocurre la ejecucion principal del programa, el programa "clickea" este boton y dentro es un ciclo infinito
 		{
 
 			
 			LoggerAccessDB logger = new LoggerAccessDB();
 
-			while (true)
+			while (true)  //ciclo infinito 
 			{
 				InventarioFisico inventarioFisico = new InventarioFisico();
 				CatProducto catProducto = new CatProducto();
