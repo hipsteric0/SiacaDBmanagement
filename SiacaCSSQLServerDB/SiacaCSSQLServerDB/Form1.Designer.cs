@@ -65,9 +65,10 @@ namespace SiacaCSSQLServerDB
 			// textBox3
 			// 
 			this.textBox3.BackColor = System.Drawing.SystemColors.Control;
-			this.textBox3.Location = new System.Drawing.Point(360, 428);
+			this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox3.Location = new System.Drawing.Point(27, 428);
 			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(417, 20);
+			this.textBox3.Size = new System.Drawing.Size(750, 13);
 			this.textBox3.TabIndex = 3;
 			this.textBox3.Text = "Ubicación: C:\\Users\\jose romero\\Desktop\\log\\LOGpROFIT.txt";
 			this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
