@@ -58,7 +58,7 @@ namespace SiacaCSAccessDatabase
 			try
 			{
 				conn = new OleDbConnection(
-					"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\jose romero\\Desktop\\MP\\INV_13-11-19.i01;Persist Security Info=True;Jet OLEDB:Database Password=*");
+					"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=S:\\SISTEMA\\mpsoftsv\\BasesMDB\\INV_13-11-19.i01;Persist Security Info=True;Jet OLEDB:Database Password=*");
 				conn.Open();
 
 				OleDbCommand cmd =
@@ -111,7 +111,7 @@ namespace SiacaCSAccessDatabase
 			try
 			{
 				conn = new OleDbConnection(
-					"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\jose romero\\Desktop\\MP\\INV_13-11-19.i01;Persist Security Info=True;Jet OLEDB:Database Password=*");
+					"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=S:\\SISTEMA\\mpsoftsv\\BasesMDB\\INV_13-11-19.i01;Persist Security Info=True;Jet OLEDB:Database Password=*");
 				conn.Open();
 				//MessageBox.Show("ID tope:" +this.id_productos);
 				OleDbCommand cmd =
@@ -299,7 +299,7 @@ namespace SiacaCSAccessDatabase
 			try
 			{
 				conn = new OleDbConnection(
-					"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\jose romero\\Desktop\\MP\\INV_13-11-19.i01;Persist Security Info=True;Jet OLEDB:Database Password=*");
+					"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=S:\\SISTEMA\\mpsoftsv\\BasesMDB\\INV_13-11-19.i01;Persist Security Info=True;Jet OLEDB:Database Password=*");
 				conn.Open();
 
 				OleDbCommand cmd =
@@ -339,7 +339,7 @@ namespace SiacaCSAccessDatabase
 			try
 			{
 				conn = new OleDbConnection(
-					"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\jose romero\\Desktop\\MP\\INV_13-11-19.i01;Persist Security Info=True;Jet OLEDB:Database Password=*");
+					"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=S:\\SISTEMA\\mpsoftsv\\BasesMDB\\INV_13-11-19.i01;Persist Security Info=True;Jet OLEDB:Database Password=*");
 				conn.Open();
 
 				OleDbCommand cmd =

@@ -64,11 +64,12 @@ namespace SiacaCSAccessDatabase
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(21, 66);
+			this.textBox1.Location = new System.Drawing.Point(28, 81);
+			this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";
 			this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.textBox1.Size = new System.Drawing.Size(639, 269);
+			this.textBox1.Size = new System.Drawing.Size(851, 330);
 			this.textBox1.TabIndex = 4;
 			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
 			// 
@@ -77,10 +78,11 @@ namespace SiacaCSAccessDatabase
 			this.textBox2.BackColor = System.Drawing.SystemColors.Control;
 			this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox2.Location = new System.Drawing.Point(21, 12);
+			this.textBox2.Location = new System.Drawing.Point(28, 15);
+			this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.textBox2.Multiline = true;
 			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(639, 29);
+			this.textBox2.Size = new System.Drawing.Size(852, 36);
 			this.textBox2.TabIndex = 5;
 			this.textBox2.Text = "PRECAUCIÓN! El programa solo sincronizará los cambios en la base de datos de MP u" +
     "na vez este corriendo.   Se recomienda no cerrar en ningún momento a excepción d" +
@@ -90,9 +92,10 @@ namespace SiacaCSAccessDatabase
 			// 
 			this.textBox3.BackColor = System.Drawing.SystemColors.Control;
 			this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox3.Location = new System.Drawing.Point(21, 47);
+			this.textBox3.Location = new System.Drawing.Point(28, 58);
+			this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(100, 13);
+			this.textBox3.Size = new System.Drawing.Size(133, 15);
 			this.textBox3.TabIndex = 6;
 			this.textBox3.Text = "LOGGER:";
 			// 
@@ -100,24 +103,25 @@ namespace SiacaCSAccessDatabase
 			// 
 			this.textBox4.BackColor = System.Drawing.SystemColors.Control;
 			this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox4.Location = new System.Drawing.Point(21, 342);
+			this.textBox4.Location = new System.Drawing.Point(28, 421);
+			this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(638, 13);
+			this.textBox4.Size = new System.Drawing.Size(851, 15);
 			this.textBox4.TabIndex = 7;
-			this.textBox4.Text = "Ubicación: C:\\Users\\jose romero\\Desktop\\log\\LOGMP.txt";
+			this.textBox4.Text = "Ubicación: D:\\Users\\Administrador\\Desktop\\PROYECTO_MP_PROFIT\\log\\LOGMP.txt";
 			this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
 			// 
 			// Form2
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(672, 366);
+			this.ClientSize = new System.Drawing.Size(896, 450);
 			this.Controls.Add(this.textBox4);
 			this.Controls.Add(this.textBox3);
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.textBox1);
-			this.Margin = new System.Windows.Forms.Padding(2);
+			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Name = "Form2";
 			this.Text = "SIACA MP Database Synchronizer";
 			this.Load += new System.EventHandler(this.Form2_Load);

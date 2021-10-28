@@ -22,7 +22,7 @@ namespace SiacaCSSQLServerDB
 			{
 
 				SqlConnection con = new SqlConnection();
-				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_2020;Integrated Security=True";
+				con.ConnectionString = "Data Source=SVR-APP;Initial Catalog=SIACA_2020;Integrated Security=True";
 				//int Id = 2;
 
 				var query = "SELECT co_art,tipo,stock FROM saStockAlmacen ORDER BY co_art;";

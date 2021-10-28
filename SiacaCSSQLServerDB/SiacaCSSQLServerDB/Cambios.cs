@@ -38,7 +38,7 @@ namespace SiacaCSSQLServerDB
 			{
 
 				SqlConnection con = new SqlConnection();
-				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_2020;Integrated Security=True";
+				con.ConnectionString = "Data Source=SVR-APP;Initial Catalog=SIACA_2020;Integrated Security=True";
 				//int Id = 2;
 
 				var query = "Select COUNT(*) AS Contador FROM saNotaRecepcionCompraReng;";
@@ -91,7 +91,7 @@ namespace SiacaCSSQLServerDB
 			{
 				
 				SqlConnection con = new SqlConnection();
-				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_2020;Integrated Security=True";
+				con.ConnectionString = "Data Source=SVR-APP;Initial Catalog=SIACA_2020;Integrated Security=True";
 				//int Id = 2;
 
 				var query = "SELECT COUNT(Factura.co_art) as Contador  FROM saFacturaCompraReng as Factura, saArticulo as Articulo WHERE (Factura.co_art = Articulo.co_art) AND(Articulo.tipo LIKE 'C') ;";
@@ -146,7 +146,7 @@ namespace SiacaCSSQLServerDB
 			{
 
 				SqlConnection con = new SqlConnection();
-				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_2020;Integrated Security=True";
+				con.ConnectionString = "Data Source=SVR-APP;Initial Catalog=SIACA_2020;Integrated Security=True";
 				//int Id = 2;
 
 
@@ -226,7 +226,7 @@ namespace SiacaCSSQLServerDB
 			{
 
 				SqlConnection con = new SqlConnection();
-				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_2020;Integrated Security=True";
+				con.ConnectionString = "Data Source=SVR-APP;Initial Catalog=SIACA_2020;Integrated Security=True";
 				//int Id = 2;
 
 				var query = "SELECT TOP (1) * FROM (SELECT TOP(@cantidadCambios) Factura.co_art,Articulo.art_des,Stock.stock,Factura.co_uni,Factura.cost_unit,Articulo.campo1,Factura.fe_us_in  FROM saFacturaCompraReng as Factura, saArticulo as Articulo, saStockAlmacen as Stock WHERE (Factura.co_art = Articulo.co_art) AND(Articulo.tipo LIKE 'C') AND (Stock.co_art = Factura.co_art) AND (Stock.tipo like 'ACT') ORDER BY Factura.fe_us_in DESC) as X order by X.fe_us_in ;";
@@ -405,7 +405,7 @@ namespace SiacaCSSQLServerDB
 			{
 
 				SqlConnection con = new SqlConnection();
-				con.ConnectionString = "Data Source=PC-DE-ALEJANDRO;Initial Catalog=SIACA_2020;Integrated Security=True";
+				con.ConnectionString = "Data Source=SVR-APP;Initial Catalog=SIACA_2020;Integrated Security=True";
 				//int Id = 2;
 
 				var query = "SELECT  Stock.co_art,Articulo.art_des,Stock.stock,Articulo.campo1  FROM saStockAlmacen AS Stock, saArticulo AS Articulo WHERE (Articulo.co_art=Stock.co_art) AND (Stock.tipo LIKE 'ACT ')AND(Stock.co_art LIKE @codigoArticulo)";

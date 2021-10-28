@@ -38,12 +38,13 @@ namespace SiacaCSSQLServerDB
 			// textBox1
 			// 
 			this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-			this.textBox1.Location = new System.Drawing.Point(27, 64);
+			this.textBox1.Location = new System.Drawing.Point(36, 79);
+			this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";
 			this.textBox1.ReadOnly = true;
 			this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.textBox1.Size = new System.Drawing.Size(750, 358);
+			this.textBox1.Size = new System.Drawing.Size(999, 440);
 			this.textBox1.TabIndex = 1;
 			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
 			// 
@@ -53,10 +54,11 @@ namespace SiacaCSSQLServerDB
 			this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.textBox2.ForeColor = System.Drawing.SystemColors.WindowText;
-			this.textBox2.Location = new System.Drawing.Point(27, 13);
+			this.textBox2.Location = new System.Drawing.Point(36, 16);
+			this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.textBox2.Multiline = true;
 			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(750, 30);
+			this.textBox2.Size = new System.Drawing.Size(1000, 37);
 			this.textBox2.TabIndex = 2;
 			this.textBox2.Text = "PRECAUCIÓN! El programa debe estar abierto en el momento de registrar una entrada" +
     " de inventario para funcionar correctamente. Se recomienda no cerrar en ningún m" +
@@ -66,32 +68,36 @@ namespace SiacaCSSQLServerDB
 			// 
 			this.textBox3.BackColor = System.Drawing.SystemColors.Control;
 			this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox3.Location = new System.Drawing.Point(27, 428);
+			this.textBox3.Location = new System.Drawing.Point(36, 527);
+			this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(750, 13);
+			this.textBox3.Size = new System.Drawing.Size(1000, 15);
 			this.textBox3.TabIndex = 3;
-			this.textBox3.Text = "Ubicación: C:\\Users\\jose romero\\Desktop\\log\\LOGProfit.txt";
+			this.textBox3.Text = "Ubicación: C:\\Users\\Administrador.SIACASERVICIOS\\Desktop\\Proyecto_Profit_MP\\log\\L" +
+    "OGProfit.txt";
 			this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// textBox4
 			// 
 			this.textBox4.BackColor = System.Drawing.SystemColors.Control;
 			this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox4.Location = new System.Drawing.Point(27, 45);
+			this.textBox4.Location = new System.Drawing.Point(36, 55);
+			this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(100, 13);
+			this.textBox4.Size = new System.Drawing.Size(133, 15);
 			this.textBox4.TabIndex = 4;
 			this.textBox4.Text = "LOGGER:";
 			// 
 			// Form1
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(1067, 554);
 			this.Controls.Add(this.textBox4);
 			this.Controls.Add(this.textBox3);
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.textBox1);
+			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.Name = "Form1";
 			this.Text = "SIACA PROFIT Database Synchronizer";
 			this.ResumeLayout(false);

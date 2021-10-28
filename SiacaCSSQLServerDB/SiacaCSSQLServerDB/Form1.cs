@@ -38,7 +38,7 @@ namespace SiacaCSSQLServerDB
 				{
 					//oldCantidadDeFacturas = cambios.SelectCantidadDeFacturas();  // Esto es si el programa funcionara con la cantidad de registros en saFacturaCompra
 					oldCantidadDeFacturas = cambios.SelectCantidadDeNotasRecepcionCompra();    // Esto es si el programa funcionara con la cantidad de registros en saNotaRecepcionCompraReng
-					oldCantidadDeFacturas = 643; //BORRAR, SOLO PARA PRUEBAS error ñs 644, los acentos tambien dan error 649
+					//oldCantidadDeFacturas = 200; //BORRAR, SOLO PARA PRUEBAS error ñs 644, los acentos tambien dan error 649
 				}
 
 				//int newCantidadDeFacturas = cambios.SelectCantidadDeFacturas();  // Esto es si el programa funcionara con la cantidad de registros en saFacturaCompra			
@@ -93,7 +93,8 @@ namespace SiacaCSSQLServerDB
 				textBox1.Text = logger.GetAllFile();
 
 				//sleep(sleepQuantity)
-				await Task.Delay(300000); //tiempo en milisegundos
+				await Task.Delay(300000); //tiempo en milisegundos. 5 minutos
+				//await Task.Delay(12000); //tiempo en milisegundos. 12 segundos
 				//aca se duerme la cantidad que se determino
 			}
 

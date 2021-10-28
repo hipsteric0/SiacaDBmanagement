@@ -33,3 +33,6 @@ C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSAccessDatabase\Si
 C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSAccessDatabase\SiacaCSAccessDatabase\bin\Debug\Newtonsoft.Json.dll
 C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSAccessDatabase\SiacaCSAccessDatabase\bin\Debug\Newtonsoft.Json.xml
 C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSAccessDatabase\SiacaCSAccessDatabase\obj\Debug\SiacaCSAccessDatabase.csproj.CopyComplete
+C:\Users\alero\OneDrive\Documentos\GitHub\SiacaDBmanagement\SiacaCSAccessDatabase\SiacaCSAccessDatabase\bin\Debug\Newtonsoft.Json.dll
+C:\Users\alero\OneDrive\Documentos\GitHub\SiacaDBmanagement\SiacaCSAccessDatabase\SiacaCSAccessDatabase\bin\Debug\Newtonsoft.Json.xml
+C:\Users\alero\OneDrive\Documentos\GitHub\SiacaDBmanagement\SiacaCSAccessDatabase\SiacaCSAccessDatabase\obj\Debug\SiacaCSAccessDatabase.csproj.CopyComplete

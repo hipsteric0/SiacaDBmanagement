@@ -31,8 +31,8 @@ namespace SiacaCSAccessDatabase
 		private void Form2_Load(object sender, EventArgs e)
 		{
 			// TODO: This line of code loads data into the '_INV_13_11_19DataSet1.InventarioFisico' table. You can move, or remove it, as needed.
-			this.inventarioFisicoTableAdapter.Fill(this._INV_13_11_19DataSet1.InventarioFisico);
-			inventarioFisicoBindingSource.DataSource = this._INV_13_11_19DataSet1.InventarioFisico;
+			//this.inventarioFisicoTableAdapter.Fill(this._INV_13_11_19DataSet1.InventarioFisico);
+			//inventarioFisicoBindingSource.DataSource = this._INV_13_11_19DataSet1.InventarioFisico;
 			
 		}
 
@@ -129,7 +129,8 @@ namespace SiacaCSAccessDatabase
 				textBox1.Text = logger.GetAllFile();
 
 				//sleep
-				await Task.Delay(300000); //tiempo en milisegundos
+				await Task.Delay(300000); //tiempo en milisegundos. 5minutos
+				//await Task.Delay(12000); //tiempo en milisegundos. 12 segundos
 			}
 
 			

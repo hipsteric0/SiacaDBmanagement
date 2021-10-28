@@ -9,7 +9,7 @@ namespace SiacaCSAccessDatabase
 {
 	class LoggerAccessDB
 	{
-		public string filePath = @"C:\Users\jose romero\Desktop\log\LOGMP.txt";
+		public string filePath = @"D:\Users\Administrador\Desktop\PROYECTO_MP_PROFIT\log\LOGMP.txt";
 
 
 		public string GetAllFile()
@@ -37,7 +37,7 @@ namespace SiacaCSAccessDatabase
 			try
 			{
 				
-				string str = "[ " + DateTime.Now.ToString() + " ] " + "CAMBIO(S) DETECTADO(S) EN API. El producto [ "+inventario.producto +" ], de codigo [ "+inventario.clave_producto.Trim()+" ] existe en la Base de datos de MP, se procedera a Actualizar su inventario con la cantidad [ "+inventario.cantidad+" ].";
+				string str = "[ " + DateTime.Now.ToString() + " ] " + "CAMBIO(S) DETECTADO(S) EN API." + Environment.NewLine + "El producto: [ " + inventario.producto +" ]" + Environment.NewLine + "Codigo: [ " + inventario.clave_producto.Trim()+" ] " + Environment.NewLine + "Cantidad: [" + inventario.cantidad+"]" + Environment.NewLine + "EXISTE en la Base de datos de MP, se procedera a ACTUALIZAR su inventario.";
 
 
 				List<string> x = File.ReadAllLines(filePath).ToList<string>();
@@ -62,7 +62,7 @@ namespace SiacaCSAccessDatabase
 			try
 			{
 
-				string str = "[ " + DateTime.Now.ToString() + " ] " + "CAMBIO(S) DETECTADO(S) EN API. El producto [ " + inventario.producto + " ], de codigo [ " + inventario.clave_producto.Trim() + " ] NO existe en la Base de datos de MP, se procedera a Crear su registro con la cantidad: [ " + inventario.cantidad + " ].";
+				string str = "[ " + DateTime.Now.ToString() + " ] " + "CAMBIO(S) DETECTADO(S) EN API." + Environment.NewLine + "El producto: [ " + inventario.producto + " ]" + Environment.NewLine + "Codigo: [ " + inventario.clave_producto.Trim() + " ] " + Environment.NewLine + "Cantidad: [" + inventario.cantidad + "]" + Environment.NewLine + "NO EXISTE en la Base de datos de MP, se procedera a CREAR su inventario.";
 
 
 				List<string> x = File.ReadAllLines(filePath).ToList<string>();
@@ -87,7 +87,7 @@ namespace SiacaCSAccessDatabase
 			try
 			{
 
-				string str = "[ " + DateTime.Now.ToString() + " ] " + "NO HAY CONEXION A API. chequee su conexion a internet. Se volvera a intentar mas tarde.";
+				string str = "[ " + DateTime.Now.ToString() + " ] " + Environment.NewLine + "NO HAY CONEXION A API." + Environment.NewLine + "Chequee su conexion a internet. Se volvera a intentar mas tarde.";
 
 
 				List<string> x = File.ReadAllLines(filePath).ToList<string>();

@@ -11,3 +11,16 @@ C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\Siaca
 C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\bin\Debug\Newtonsoft.Json.dll
 C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\bin\Debug\Newtonsoft.Json.xml
 C:\Users\jose romero\Documents\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.csproj.CopyComplete
+C:\Users\alero\OneDrive\Documentos\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\bin\Debug\SiacaCSSQLServerDB.exe.config
+C:\Users\alero\OneDrive\Documentos\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\bin\Debug\SiacaCSSQLServerDB.exe
+C:\Users\alero\OneDrive\Documentos\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\bin\Debug\SiacaCSSQLServerDB.pdb
+C:\Users\alero\OneDrive\Documentos\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\bin\Debug\Newtonsoft.Json.dll
+C:\Users\alero\OneDrive\Documentos\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\bin\Debug\Newtonsoft.Json.xml
+C:\Users\alero\OneDrive\Documentos\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.csproj.AssemblyReference.cache
+C:\Users\alero\OneDrive\Documentos\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.Form1.resources
+C:\Users\alero\OneDrive\Documentos\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.Properties.Resources.resources
+C:\Users\alero\OneDrive\Documentos\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.csproj.GenerateResource.cache
+C:\Users\alero\OneDrive\Documentos\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.csproj.CoreCompileInputs.cache
+C:\Users\alero\OneDrive\Documentos\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.csproj.CopyComplete
+C:\Users\alero\OneDrive\Documentos\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.exe
+C:\Users\alero\OneDrive\Documentos\GitHub\SiacaDBmanagement\SiacaCSSQLServerDB\SiacaCSSQLServerDB\obj\Debug\SiacaCSSQLServerDB.pdb
